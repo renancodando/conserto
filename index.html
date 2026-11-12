@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Renan Mobile Lab — Conserto e venda de celulares</title>
+  <meta name="description" content="Assistência técnica especializada e venda de smartphones novos e seminovos com garantia.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/brand.js"></script>
+</head>
+<body>
+
+  <!-- Ambiente espacial: luzes de fundo -->
+  <div class="ambient" aria-hidden="true">
+    <span class="orb orb--a"></span>
+    <span class="orb orb--b"></span>
+    <span class="orb orb--c"></span>
+    <span class="grid-floor"></span>
+  </div>
+
+  <!-- ================= HEADER ================= -->
+  <header class="header">
+    <div class="topbar">
+      <div class="container topbar__inner">
+        <span>📍 <span data-brand="address"></span></span>
+        <span class="topbar__right">🕘 <span data-brand="hours"></span></span>
+      </div>
+    </div>
+    <nav class="nav glass" aria-label="Principal">
+      <a href="#inicio" class="logo" aria-label="Página inicial">
+        <svg class="logo__mark" viewBox="0 0 48 48" aria-hidden="true">
+          <defs>
+            <linearGradient id="lg" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="var(--primary)"/>
+              <stop offset="1" stop-color="var(--secondary)"/>
+            </linearGradient>
+          </defs>
+          <rect x="10" y="3" width="28" height="42" rx="8" fill="url(#lg)"/>
+          <rect x="13.5" y="7" width="21" height="31" rx="4" fill="var(--ink)" opacity=".85"/>
+          <path d="M19 31V14h6.2a4.6 4.6 0 0 1 0 9.2H19m6 0 5 7.8" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="24" cy="41.5" r="1.4" fill="#fff"/>
+        </svg>
+        <span class="logo__text">
+          <strong data-brand="name">Renan</strong>
+          <small data-brand="suffix">Mobile Lab</small>
+        </span>
+      </a>
+
+      <button class="nav__toggle" aria-label="Abrir menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+
+      <ul class="nav__links">
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#loja">Loja</a></li>
+        <li><a href="#orcamento">Orçamento</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#contato">Contato</a></li>
+        <li class="nav__cta"><a class="btn btn--primary btn--sm" data-whatsapp href="#">WhatsApp</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ================= HERO ================= -->
+    <section class="hero container" id="inicio">
+      <div class="hero__copy">
+        <span class="chip glass">⚡ Reparos expressos em até 1 hora</span>
+        <h1>
+          <span data-brand="slogan">Seu celular de volta, como novo.</span>
+        </h1>
+        <p class="lead">
+          Assistência técnica especializada em iPhone, Samsung, Motorola e Xiaomi,
+          com peças de qualidade e <strong><span data-brand="warrantyMonths">6</span> meses de garantia</strong>.
+          E se for hora de trocar, temos aparelhos novos e seminovos revisados.
+        </p>
+        <div class="hero__actions">
+          <a href="#orcamento" class="btn btn--primary">Fazer orçamento grátis</a>
+          <a href="#loja" class="btn btn--glass">Ver celulares à venda</a>
+        </div>
+        <ul class="hero__stats">
+          <li><strong data-count="18000">0</strong><span>aparelhos consertados</span></li>
+          <li><strong>4,9★</strong><span>no Google</span></li>
+          <li><strong data-brand-years>10+</strong><span>anos de experiência</span></li>
+        </ul>
+      </div>
+
+      <!-- Cena espacial -->
+      <div class="hero__scene" data-tilt-scene>
+        <div class="scene">
+          <div class="phone" data-depth="0">
+            <div class="phone__screen">
+              <div class="phone__notch"></div>
+              <div class="phone__ui">
+                <span class="phone__time">09:41</span>
+                <div class="phone__ring">
+                  <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="52" class="ring-bg"/><circle cx="60" cy="60" r="52" class="ring-fg"/></svg>
+                  <div><b>100%</b><small>Diagnóstico</small></div>
+                </div>
+                <ul class="phone__checks">
+                  <li>Tela <i>OK</i></li>
+                  <li>Bateria <i>OK</i></li>
+                  <li>Câmera <i>OK</i></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="float glass float--a" data-depth="60">
+            <span class="float__icon">🛠️</span>
+            <div><b>Tela trocada</b><small>Pronto em 45 min</small></div>
+          </div>
+          <div class="float glass float--b" data-depth="90">
+            <span class="float__icon float__icon--accent">🛡️</span>
+            <div><b><span data-brand="warrantyMonths">6</span> meses</b><small>de garantia</small></div>
+          </div>
+          <div class="float glass float--c" data-depth="40">
+            <span class="float__icon">🔋</span>
+            <div><b>Bateria nova</b><small>Saúde 100%</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= MARCAS ================= -->
+    <section class="brands container" aria-label="Marcas atendidas">
+      <div class="brands__strip glass">
+        <span>Atendemos</span>
+        <ul>
+          <li>Apple</li><li>Samsung</li><li>Motorola</li><li>Xiaomi</li><li>LG</li><li>Asus</li><li>Realme</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ================= SERVIÇOS ================= -->
+    <section class="section container" id="servicos">
+      <header class="section__head">
+        <span class="eyebrow">Assistência técnica</span>
+        <h2>Consertamos o que o seu celular precisar</h2>
+        <p>Diagnóstico gratuito, orçamento na hora e acompanhamento do reparo pelo WhatsApp.</p>
+      </header>
+
+      <div class="services">
+        <article class="card glass" data-tilt>
+          <div class="card__icon">📱</div>
+          <h3>Troca de tela</h3>
+          <p>Telas originais e premium, com película de brinde e calibração do touch.</p>
+          <span class="card__price">a partir de <b>R$ 189</b></span>
+        </article>
+        <article class="card glass" data-tilt>
+          <div class="card__icon">🔋</div>
+          <h3>Troca de bateria</h3>
+          <p>Bateria nova com certificação, teste de ciclos e saúde em 100%.</p>
+          <span class="card__price">a partir de <b>R$ 129</b></span>
+        </article>
+        <article class="card glass" data-tilt>
+          <div class="card__icon">🔌</div>
+          <h3>Conector de carga</h3>
+          <p>Celular não carrega? Limpeza ou troca do conector com teste completo.</p>
+          <span class="card__price">a partir de <b>R$ 99</b></span>
+        </article>
+        <article class="card glass" data-tilt>
+          <div class="card__icon">💧</div>
+          <h3>Dano por líquido</h3>
+          <p>Banho químico em ultrassom e recuperação de placa em laboratório.</p>
+          <span class="card__price">a partir de <b>R$ 149</b></span>
+        </article>
+        <article class="card glass" data-tilt>
+          <div class="card__icon">📷</div>
+          <h3>Câmeras e lentes</h3>
+          <p>Câmera embaçada, tremendo ou sem foco? Trocamos módulo e vidro da lente.</p>
+          <span class="card__price">a partir de <b>R$ 119</b></span>
+        </article>
+        <article class="card glass" data-tilt>
+          <div class="card__icon">💾</div>
+          <h3>Software e dados</h3>
+          <p>Atualização, desbloqueio de conta, backup e recuperação de fotos.</p>
+          <span class="card__price">a partir de <b>R$ 79</b></span>
+        </article>
+      </div>
+    </section>
+
+    <!-- ================= COMO FUNCIONA ================= -->
+    <section class="section container">
+      <header class="section__head">
+        <span class="eyebrow">Como funciona</span>
+        <h2>Simples, rápido e transparente</h2>
+      </header>
+      <ol class="steps">
+        <li class="step glass"><span class="step__n">1</span><h3>Traga ou agende</h3><p>Venha à loja ou peça a coleta grátis na sua casa.</p></li>
+        <li class="step glass"><span class="step__n">2</span><h3>Diagnóstico grátis</h3><p>Avaliamos o aparelho na sua frente, sem compromisso.</p></li>
+        <li class="step glass"><span class="step__n">3</span><h3>Reparo expresso</h3><p>A maioria dos consertos fica pronta no mesmo dia.</p></li>
+        <li class="step glass"><span class="step__n">4</span><h3>Garantia</h3><p><span data-brand="warrantyMonths">6</span> meses de garantia em peças e mão de obra.</p></li>
+      </ol>
+    </section>
+
+    <!-- ================= LOJA ================= -->
+    <section class="section container" id="loja">
+      <header class="section__head section__head--row">
+        <div>
+          <span class="eyebrow">Loja</span>
+          <h2>Celulares novos e seminovos</h2>
+          <p>Todos revisados em 40 pontos, com nota fiscal e garantia.</p>
+        </div>
+        <div class="tabs glass" role="tablist">
+          <button class="tab is-active" data-filter="all" role="tab">Todos</button>
+          <button class="tab" data-filter="novo" role="tab">Novos</button>
+          <button class="tab" data-filter="seminovo" role="tab">Seminovos</button>
+        </div>
+      </header>
+
+      <div class="products" id="products"><!-- preenchido via JS --></div>
+
+      <div class="tradein glass">
+        <div>
+          <h3>Seu usado vale desconto</h3>
+          <p>Avaliamos seu celular antigo na hora e o valor entra como parte do pagamento do novo.</p>
+        </div>
+        <a class="btn btn--accent" data-whatsapp data-msg="Olá! Quero avaliar meu celular usado na troca." href="#">Avaliar meu usado</a>
+      </div>
+    </section>
+
+    <!-- ================= ORÇAMENTO ================= -->
+    <section class="section container" id="orcamento">
+      <div class="quote glass">
+        <div class="quote__intro">
+          <span class="eyebrow">Orçamento online</span>
+          <h2>Descubra quanto custa o seu conserto</h2>
+          <p>Escolha o aparelho e o problema. O valor é uma estimativa — confirmamos tudo no diagnóstico gratuito.</p>
+          <ul class="checklist">
+            <li>Sem compromisso</li>
+            <li>Peças com garantia</li>
+            <li>Parcelamos em até 10x</li>
+          </ul>
+        </div>
+
+        <form class="quote__form" id="quoteForm" novalidate>
+          <label>Marca
+            <select name="brand" required>
+              <option value="apple">Apple (iPhone)</option>
+              <option value="samsung">Samsung</option>
+              <option value="motorola">Motorola</option>
+              <option value="xiaomi">Xiaomi</option>
+              <option value="outra">Outra</option>
+            </select>
+          </label>
+          <label>Modelo
+            <input name="model" type="text" placeholder="Ex.: iPhone 13, Galaxy S23…" required>
+          </label>
+          <fieldset>
+            <legend>Qual o problema?</legend>
+            <div class="pills">
+              <label class="pill"><input type="radio" name="issue" value="tela" checked><span>Tela</span></label>
+              <label class="pill"><input type="radio" name="issue" value="bateria"><span>Bateria</span></label>
+              <label class="pill"><input type="radio" name="issue" value="carga"><span>Não carrega</span></label>
+              <label class="pill"><input type="radio" name="issue" value="liquido"><span>Molhou</span></label>
+              <label class="pill"><input type="radio" name="issue" value="camera"><span>Câmera</span></label>
+              <label class="pill"><input type="radio" name="issue" value="outro"><span>Outro</span></label>
+            </div>
+          </fieldset>
+
+          <div class="quote__result" aria-live="polite">
+            <small>Estimativa</small>
+            <strong id="quoteValue">R$ —</strong>
+            <span id="quoteTime">Prazo médio: —</span>
+          </div>
+
+          <button class="btn btn--primary btn--block" type="submit">Enviar pelo WhatsApp</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ================= SOBRE / DIFERENCIAIS ================= -->
+    <section class="section container about" id="sobre">
+      <div class="about__visual">
+        <div class="layer glass layer--back"></div>
+        <div class="layer glass layer--mid">
+          <span class="big" data-brand-years>10+</span>
+          <span>anos cuidando de celulares</span>
+        </div>
+        <div class="layer glass layer--front">
+          <b>Laboratório próprio</b>
+          <small>Microsoldagem e reparo de placa</small>
+        </div>
+      </div>
+      <div class="about__copy">
+        <span class="eyebrow">Sobre a <span data-brand="name">Renan</span></span>
+        <h2>Tecnologia com atendimento de bairro</h2>
+        <p>
+          A <strong><span data-brand="name">Renan</span> <span data-brand="suffix">Mobile Lab</span></strong>
+          nasceu em <span data-brand="founded">2014</span> com uma ideia simples: consertar celulares com honestidade,
+          explicando cada etapa e cobrando o justo. Hoje somos referência na região, com técnicos certificados
+          e laboratório próprio.
+        </p>
+        <ul class="features">
+          <li class="glass"><b>Técnicos certificados</b><span>Treinamento contínuo nas principais marcas.</span></li>
+          <li class="glass"><b>Peças de qualidade</b><span>Originais e premium, sempre com procedência.</span></li>
+          <li class="glass"><b>Coleta e entrega</b><span>Buscamos e levamos seu aparelho sem custo.</span></li>
+          <li class="glass"><b>Pagamento fácil</b><span>Pix, débito e crédito em até 10x.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ================= DEPOIMENTOS ================= -->
+    <section class="section container">
+      <header class="section__head">
+        <span class="eyebrow">Depoimentos</span>
+        <h2>Quem consertou, recomenda</h2>
+      </header>
+      <div class="reviews">
+        <figure class="review glass" data-tilt>
+          <div class="stars">★★★★★</div>
+          <blockquote>“Troquei a tela do meu iPhone em menos de uma hora. Ficou perfeito e ainda ganhei película.”</blockquote>
+          <figcaption><span class="avatar">CM</span>Cliente · iPhone 12</figcaption>
+        </figure>
+        <figure class="review glass" data-tilt>
+          <div class="stars">★★★★★</div>
+          <blockquote>“Meu celular caiu na piscina e achei que tinha perdido tudo. Recuperaram o aparelho e as fotos.”</blockquote>
+          <figcaption><span class="avatar">JS</span>Cliente · Galaxy S22</figcaption>
+        </figure>
+        <figure class="review glass" data-tilt>
+          <div class="stars">★★★★★</div>
+          <blockquote>“Comprei um seminovo com garantia e usei meu antigo na troca. Atendimento nota 10.”</blockquote>
+          <figcaption><span class="avatar">AP</span>Cliente · Moto Edge</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ================= FAQ ================= -->
+    <section class="section container faq">
+      <header class="section__head">
+        <span class="eyebrow">Dúvidas frequentes</span>
+        <h2>Perguntas e respostas</h2>
+      </header>
+      <div class="faq__list">
+        <details class="glass" open>
+          <summary>O diagnóstico é realmente gratuito?</summary>
+          <p>Sim. Avaliamos o aparelho sem custo e só fazemos o reparo após sua aprovação do orçamento.</p>
+        </details>
+        <details class="glass">
+          <summary>Vou perder meus dados no conserto?</summary>
+          <p>Na grande maioria dos reparos (tela, bateria, conector) seus dados permanecem intactos. Mesmo assim, recomendamos backup — e podemos fazê-lo para você.</p>
+        </details>
+        <details class="glass">
+          <summary>Qual é a garantia?</summary>
+          <p>Todos os serviços e aparelhos vendidos têm <span data-brand="warrantyMonths">6</span> meses de garantia, cobrindo peças e mão de obra.</p>
+        </details>
+        <details class="glass">
+          <summary>Os seminovos têm nota fiscal?</summary>
+          <p>Sim. Todos os aparelhos são revisados em 40 pontos, acompanham nota fiscal, carregador e garantia.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- ================= CONTATO ================= -->
+    <section class="section container" id="contato">
+      <div class="contact">
+        <div class="contact__card glass">
+          <span class="eyebrow">Fale com a gente</span>
+          <h2>Venha nos visitar</h2>
+          <ul class="contact__list">
+            <li><span>📍</span><div><b>Endereço</b><span data-brand="address"></span></div></li>
+            <li><span>📞</span><div><b>Telefone</b><a data-brand="phone" data-tel href="#"></a></div></li>
+            <li><span>✉️</span><div><b>E-mail</b><a data-brand="email" data-mail href="#"></a></div></li>
+            <li><span>🕘</span><div><b>Horário</b><span data-brand="hours"></span></div></li>
+          </ul>
+          <a class="btn btn--primary btn--block" data-whatsapp href="#">Chamar no WhatsApp</a>
+        </div>
+        <div class="map glass" aria-label="Mapa ilustrativo">
+          <div class="map__grid"></div>
+          <div class="map__road map__road--h"></div>
+          <div class="map__road map__road--v"></div>
+          <div class="map__pin">
+            <span class="map__pulse"></span>
+            <span class="map__dot"></span>
+            <span class="map__label glass"><b data-brand="name">Renan</b> <span data-brand="suffix">Mobile Lab</span></span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <div class="container footer__inner glass">
+      <div class="footer__brand">
+        <a href="#inicio" class="logo">
+          <svg class="logo__mark" viewBox="0 0 48 48" aria-hidden="true">
+            <rect x="10" y="3" width="28" height="42" rx="8" fill="url(#lg)"/>
+            <rect x="13.5" y="7" width="21" height="31" rx="4" fill="var(--ink)" opacity=".85"/>
+            <path d="M19 31V14h6.2a4.6 4.6 0 0 1 0 9.2H19m6 0 5 7.8" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="24" cy="41.5" r="1.4" fill="#fff"/>
+          </svg>
+          <span class="logo__text"><strong data-brand="name">Renan</strong><small data-brand="suffix">Mobile Lab</small></span>
+        </a>
+        <p data-brand="tagline"></p>
+      </div>
+      <div>
+        <h4>Serviços</h4>
+        <ul><li><a href="#servicos">Troca de tela</a></li><li><a href="#servicos">Bateria</a></li><li><a href="#servicos">Reparo de placa</a></li><li><a href="#orcamento">Orçamento</a></li></ul>
+      </div>
+      <div>
+        <h4>Loja</h4>
+        <ul><li><a href="#loja">Novos</a></li><li><a href="#loja">Seminovos</a></li><li><a href="#loja">Acessórios</a></li><li><a href="#loja">Trade-in</a></li></ul>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <ul><li data-brand="phone"></li><li data-brand="email"></li><li data-brand="instagram"></li></ul>
+      </div>
+      <div class="footer__legal">
+        <span>© <span id="year"></span> <span data-brand="name">Renan</span> <span data-brand="suffix">Mobile Lab</span> · CNPJ <span data-brand="cnpj"></span></span>
+        <span>Marcas citadas pertencem aos seus respectivos donos.</span>
+      </div>
+    </div>
+  </footer>
+
+  <a class="wa-float" data-whatsapp href="#" aria-label="Falar no WhatsApp">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3Zm0 23.6a10.6 10.6 0 0 1-5.4-1.5l-.4-.2-3.9 1 1-3.8-.2-.4A10.6 10.6 0 1 1 16 26.6Zm5.8-7.9c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7 0a8.7 8.7 0 0 1-4.3-3.8c-.3-.5.3-.5.9-1.6a.6.6 0 0 0 0-.5l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.9.4 3.7 3.7 0 0 0-1.1 2.7 6.4 6.4 0 0 0 1.3 3.4 14.6 14.6 0 0 0 5.6 5c2.1.9 2.9 1 4 .8a3.4 3.4 0 0 0 2.2-1.6 2.8 2.8 0 0 0 .2-1.6c-.1-.1-.3-.2-.6-.3Z"/></svg>
+  </a>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
