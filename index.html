@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Renan Mobile Lab — Conserto e venda de celulares</title>
   <meta name="description" content="Assistência técnica especializada e venda de smartphones novos e seminovos com garantia.">
-  <meta name="theme-color" content="#060607">
+  <meta name="theme-color" content="#020816">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -55,22 +55,32 @@
       <defs>
         <linearGradient id="sw1" x1="0" x2="1">
           <stop offset="0" stop-color="#fff" stop-opacity="0"/>
-          <stop offset=".45" stop-color="#fff" stop-opacity=".55"/>
-          <stop offset=".8" style="stop-color:var(--primary)" stop-opacity=".9"/>
+          <stop offset=".4" stop-color="#cfe8ff" stop-opacity=".7"/>
+          <stop offset=".75" style="stop-color:var(--secondary)" stop-opacity=".9"/>
           <stop offset="1" style="stop-color:var(--primary)" stop-opacity="0"/>
         </linearGradient>
         <linearGradient id="sw2" x1="1" x2="0">
           <stop offset="0" style="stop-color:var(--primary)" stop-opacity="0"/>
-          <stop offset=".4" style="stop-color:var(--primary)" stop-opacity=".8"/>
+          <stop offset=".4" style="stop-color:var(--secondary)" stop-opacity=".8"/>
           <stop offset="1" stop-color="#fff" stop-opacity="0"/>
         </linearGradient>
-        <filter id="soft"><feGaussianBlur stdDeviation="2.2"/></filter>
-        <filter id="wide"><feGaussianBlur stdDeviation="14"/></filter>
+        <linearGradient id="ribbon" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" style="stop-color:var(--primary)" stop-opacity=".28"/>
+          <stop offset="1" style="stop-color:var(--primary)" stop-opacity="0"/>
+        </linearGradient>
+        <filter id="soft"><feGaussianBlur stdDeviation="2"/></filter>
+        <filter id="wide"><feGaussianBlur stdDeviation="16"/></filter>
       </defs>
-      <path d="M-50 720 C 300 560, 700 520, 1000 600 S 1500 760, 1650 640" stroke="url(#sw1)" stroke-width="10" fill="none" filter="url(#wide)" opacity=".5"/>
-      <path d="M-50 720 C 300 560, 700 520, 1000 600 S 1500 760, 1650 640" stroke="url(#sw1)" stroke-width="1.6" fill="none" filter="url(#soft)"/>
-      <path d="M1650 300 C 1350 420, 1150 500, 900 470 S 300 330, -50 470" stroke="url(#sw2)" stroke-width="1.2" fill="none" filter="url(#soft)" opacity=".6"/>
-      <path d="M-50 940 C 400 840, 900 860, 1650 960" stroke="url(#sw1)" stroke-width="1" fill="none" opacity=".35"/>
+      <!-- Fitas de vidro -->
+      <path d="M-60 560 C 200 470, 420 600, 640 640 C 760 660, 900 660, 1000 650 C 1250 640, 1450 600, 1660 520 L 1660 1000 L -60 1000 Z" fill="url(#ribbon)" opacity=".65"/>
+      <path d="M-60 560 C 200 470, 420 600, 640 640" stroke="url(#sw1)" stroke-width="12" fill="none" filter="url(#wide)" opacity=".7"/>
+      <path d="M-60 560 C 200 470, 420 600, 640 640" stroke="url(#sw1)" stroke-width="2" fill="none" filter="url(#soft)"/>
+      <path d="M1660 520 C 1450 600, 1250 640, 1000 650" stroke="url(#sw2)" stroke-width="12" fill="none" filter="url(#wide)" opacity=".7"/>
+      <path d="M1660 520 C 1450 600, 1250 640, 1000 650" stroke="url(#sw2)" stroke-width="2" fill="none" filter="url(#soft)"/>
+      <path d="M-50 760 C 400 640, 1000 640, 1650 780" stroke="url(#sw1)" stroke-width="1.4" fill="none" opacity=".55"/>
+      <path d="M-50 980 C 500 860, 1100 860, 1650 990" stroke="url(#sw2)" stroke-width="1.2" fill="none" opacity=".45"/>
+      <path d="M1650 60 C 1400 140, 1200 120, 1100 60" stroke="url(#sw2)" stroke-width="1.5" fill="none" opacity=".6"/>
+      <path d="M-50 120 C 150 60, 250 40, 330 -20" stroke="url(#sw1)" stroke-width="1.5" fill="none" opacity=".5"/>
     </svg>
     <span class="bars bars--l"></span>
     <span class="bars bars--r"></span>
@@ -108,6 +118,7 @@
       <a class="btn btn--outline btn--sm header__cta" data-whatsapp href="#">
         <svg class="ico"><use href="#i-wa"/></svg> Fale no WhatsApp <svg class="ico ico--arrow"><use href="#i-arrow"/></svg>
       </a>
+      <a href="#loja" class="apps" aria-label="Ir para a loja"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></a>
       <button class="nav__toggle" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </header>
@@ -135,76 +146,133 @@
         <div class="scene">
           <svg class="scene__svg" viewBox="0 0 600 560" aria-hidden="true">
             <defs>
+              <linearGradient id="rimG" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" style="stop-color:var(--secondary)"/>
+                <stop offset=".5" style="stop-color:var(--primary)"/>
+                <stop offset="1" style="stop-color:var(--secondary)" stop-opacity=".2"/>
+              </linearGradient>
               <linearGradient id="ringG" x1="0" y1="0" x2="1" y2="1">
                 <stop offset="0" style="stop-color:var(--secondary)"/>
-                <stop offset=".55" style="stop-color:var(--primary)"/>
+                <stop offset=".5" style="stop-color:var(--primary)"/>
                 <stop offset="1" style="stop-color:var(--primary)" stop-opacity="0"/>
               </linearGradient>
-              <linearGradient id="orbitG" x1="0" x2="1">
-                <stop offset="0" stop-color="#fff" stop-opacity=".05"/>
-                <stop offset=".35" stop-color="#fff" stop-opacity=".55"/>
-                <stop offset=".75" style="stop-color:var(--primary)"/>
-                <stop offset="1" style="stop-color:var(--primary)" stop-opacity=".1"/>
+              <linearGradient id="bandG" x1="0" x2="1">
+                <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+                <stop offset=".25" stop-color="#fff" stop-opacity=".55"/>
+                <stop offset=".55" style="stop-color:var(--secondary)" stop-opacity=".9"/>
+                <stop offset=".85" style="stop-color:var(--primary)" stop-opacity=".6"/>
+                <stop offset="1" style="stop-color:var(--primary)" stop-opacity="0"/>
+              </linearGradient>
+              <linearGradient id="bandFill" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#fff" stop-opacity=".18"/>
+                <stop offset="1" style="stop-color:var(--primary)" stop-opacity=".04"/>
               </linearGradient>
               <linearGradient id="glassG" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#fff" stop-opacity=".22"/>
-                <stop offset=".5" stop-color="#fff" stop-opacity=".04"/>
-                <stop offset="1" stop-color="#fff" stop-opacity=".12"/>
+                <stop offset="0" stop-color="#cfe8ff" stop-opacity=".38"/>
+                <stop offset=".45" style="stop-color:var(--primary)" stop-opacity=".1"/>
+                <stop offset="1" stop-color="#cfe8ff" stop-opacity=".22"/>
               </linearGradient>
-              <radialGradient id="padG" cx=".5" cy=".5" r=".5">
-                <stop offset="0" style="stop-color:var(--secondary)" stop-opacity=".9"/>
-                <stop offset=".6" style="stop-color:var(--primary)" stop-opacity=".35"/>
-                <stop offset="1" style="stop-color:var(--primary)" stop-opacity="0"/>
+              <linearGradient id="bodyG" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#bfe6ff" stop-opacity=".55"/>
+                <stop offset=".35" style="stop-color:var(--primary)" stop-opacity=".35"/>
+                <stop offset=".75" style="stop-color:var(--primary)" stop-opacity=".18"/>
+                <stop offset="1" style="stop-color:var(--secondary)" stop-opacity=".45"/>
+              </linearGradient>
+              <radialGradient id="screenG" cx=".5" cy=".5" r=".6">
+                <stop offset="0" style="stop-color:var(--secondary)" stop-opacity=".55"/>
+                <stop offset=".55" style="stop-color:var(--primary)" stop-opacity=".22"/>
+                <stop offset="1" style="stop-color:var(--ink)" stop-opacity=".2"/>
               </radialGradient>
+              <radialGradient id="padTop" cx=".5" cy=".5" r=".5">
+                <stop offset="0" stop-color="#fff" stop-opacity=".9"/>
+                <stop offset=".35" style="stop-color:var(--secondary)" stop-opacity=".85"/>
+                <stop offset=".8" style="stop-color:var(--primary)" stop-opacity=".45"/>
+                <stop offset="1" style="stop-color:var(--primary)" stop-opacity=".15"/>
+              </radialGradient>
+              <linearGradient id="padSide" x1="0" x2="1">
+                <stop offset="0" style="stop-color:var(--primary)" stop-opacity=".25"/>
+                <stop offset=".5" style="stop-color:var(--ink)" stop-opacity=".95"/>
+                <stop offset="1" style="stop-color:var(--primary)" stop-opacity=".35"/>
+              </linearGradient>
+              <linearGradient id="beamG" x1="0" y1="1" x2="0" y2="0">
+                <stop offset="0" style="stop-color:var(--secondary)" stop-opacity=".45"/>
+                <stop offset="1" style="stop-color:var(--primary)" stop-opacity="0"/>
+              </linearGradient>
               <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-                <feGaussianBlur stdDeviation="6" result="b"/>
+                <feGaussianBlur stdDeviation="5" result="b"/>
                 <feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
               </filter>
-              <filter id="bigGlow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="22"/></filter>
+              <filter id="glowSm" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="2" result="b"/>
+                <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+              <filter id="bigGlow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="24"/></filter>
             </defs>
 
-            <!-- Pedestal -->
-            <g class="pedestal">
-              <ellipse cx="300" cy="478" rx="250" ry="44" fill="none" stroke="#fff" stroke-opacity=".08"/>
-              <ellipse cx="300" cy="470" rx="190" ry="30" fill="url(#padG)" filter="url(#bigGlow)" opacity=".8"/>
-              <path d="M140 452 v18 a160 26 0 0 0 320 0 v-18" fill="#120a06" stroke="url(#ringG)" stroke-width="1.5"/>
-              <ellipse cx="300" cy="452" rx="160" ry="26" fill="#1a0f08" stroke="url(#ringG)" stroke-width="2.5" filter="url(#glow)"/>
-              <ellipse cx="300" cy="452" rx="120" ry="17" fill="none" style="stroke:var(--primary)" stroke-opacity=".5"/>
-            </g>
+            <!-- Halo e feixe de luz -->
+            <circle cx="300" cy="230" r="190" style="fill:var(--primary)" opacity=".16" filter="url(#bigGlow)"/>
+            <path d="M175 452 L245 120 H355 L425 452 Z" fill="url(#beamG)" opacity=".55"/>
 
-            <!-- Anel brilhante -->
+            <!-- Anéis -->
             <g class="ring" filter="url(#glow)">
-              <circle cx="300" cy="230" r="178" fill="none" stroke="url(#ringG)" stroke-width="3"/>
+              <circle cx="300" cy="230" r="178" fill="none" stroke="url(#ringG)" stroke-width="3.5"/>
             </g>
-            <g class="ticks" stroke="#fff" stroke-opacity=".35" stroke-width="2">
-              <path d="M130 120l8 5M118 140l8 4M108 162l9 3M100 186l9 2" />
-              <path d="M492 260h12M492 276h12M490 292h12M486 308h12" />
+            <g class="ring ring--rev">
+              <circle cx="300" cy="230" r="198" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="3" stroke-dasharray="1.5 9" stroke-linecap="round" pathLength="360"/>
+            </g>
+            <circle cx="300" cy="230" r="160" fill="none" style="stroke:var(--secondary)" stroke-opacity=".15"/>
+            <g class="ticks" stroke="#cfe8ff" stroke-opacity=".5" stroke-width="2" stroke-linecap="round">
+              <path d="M492 260h10M492 276h10M490 292h10M486 308h10M480 324h10"/>
             </g>
 
-            <!-- Órbita traseira -->
-            <ellipse class="orbit orbit--back" cx="300" cy="250" rx="270" ry="70" transform="rotate(-16 300 250)" fill="none" stroke="url(#orbitG)" stroke-width="1.5"/>
+            <!-- Órbita traseira (faixa de vidro) -->
+            <ellipse cx="300" cy="250" rx="280" ry="72" transform="rotate(-14 300 250)" fill="none" stroke="url(#bandFill)" stroke-width="22"/>
+            <ellipse cx="300" cy="250" rx="280" ry="72" transform="rotate(-14 300 250)" fill="none" stroke="url(#bandG)" stroke-width="1.6" opacity=".7"/>
 
             <!-- Placa de vidro -->
             <g class="slab" data-depth="30">
-              <rect x="300" y="36" width="160" height="300" rx="22" transform="rotate(24 380 186)" fill="url(#glassG)" stroke="#fff" stroke-opacity=".45" stroke-width="1.4"/>
+              <g transform="rotate(26 400 190)">
+                <rect x="326" y="30" width="170" height="320" rx="24" fill="url(#glassG)" stroke="#d9efff" stroke-opacity=".7" stroke-width="1.5"/>
+                <path d="M340 60 v260" stroke="#fff" stroke-opacity=".5" stroke-width="2" stroke-linecap="round"/>
+                <path d="M350 42 h120" stroke="#fff" stroke-opacity=".35" stroke-width="1.5" stroke-linecap="round"/>
+              </g>
             </g>
 
-            <!-- Celular neon -->
+            <!-- Celular de vidro -->
             <g class="device" data-depth="60">
-              <g transform="rotate(14 300 240)" filter="url(#glow)">
-                <rect x="232" y="118" width="136" height="236" rx="22" fill="#0d0805" fill-opacity=".75" style="stroke:var(--primary)" stroke-width="5"/>
-                <rect x="284" y="108" width="34" height="12" rx="4" style="fill:var(--primary)"/>
-                <path class="bolt" d="M312 178 272 252h30l-10 58 42-80h-32z" fill="none" style="stroke:var(--primary)" stroke-width="5" stroke-linejoin="round"/>
+              <g transform="rotate(16 300 245)">
+                <rect x="228" y="116" width="144" height="244" rx="26" fill="url(#bodyG)" stroke="url(#rimG)" stroke-width="3" filter="url(#glowSm)"/>
+                <rect x="240" y="128" width="120" height="220" rx="18" fill="url(#screenG)" stroke="#e6f6ff" stroke-opacity=".25"/>
+                <path d="M244 140 q4 -10 16 -12 h40" fill="none" stroke="#fff" stroke-opacity=".8" stroke-width="2.5" stroke-linecap="round"/>
+                <path d="M234 180 v120" stroke="#fff" stroke-opacity=".45" stroke-width="2" stroke-linecap="round"/>
+                <rect x="284" y="134" width="32" height="8" rx="4" style="fill:var(--ink)" opacity=".6"/>
+                <path class="bolt" d="M314 182 274 254h30l-10 56 42-78h-32z" style="fill:var(--secondary);stroke:var(--secondary)" fill-opacity=".18" stroke-width="5" stroke-linejoin="round" filter="url(#glow)"/>
               </g>
             </g>
 
             <!-- Órbita frontal -->
-            <path class="orbit orbit--front" d="M40 330 C 10 290, 200 200, 470 180 C 600 172, 620 210, 520 250" fill="none" stroke="url(#orbitG)" stroke-width="2.5"/>
-            <path d="M40 330 C 60 360, 260 350, 420 300" fill="none" stroke="#fff" stroke-opacity=".25" stroke-width="1.2"/>
+            <path d="M28.3 317.7 A280 72 -14 0 0 571.7 182.3" fill="none" stroke="url(#bandFill)" stroke-width="22"/>
+            <path d="M28.3 317.7 A280 72 -14 0 0 571.7 182.3" fill="none" stroke="url(#bandG)" stroke-width="2.5" filter="url(#glowSm)"/>
+            <path d="M38 335 A280 72 -14 0 0 560 205" fill="none" stroke="#fff" stroke-opacity=".3" stroke-width="1"/>
 
-            <circle cx="520" cy="110" r="4" style="fill:var(--primary)" filter="url(#glow)"/>
-            <path d="M520 118v150" stroke="#fff" stroke-opacity=".12"/>
-            <path d="M210 452v-80M390 452v-60" style="stroke:var(--primary)" stroke-opacity=".35" stroke-dasharray="2 4"/>
+            <!-- Pedestal -->
+            <g class="pedestal">
+              <ellipse cx="300" cy="486" rx="280" ry="46" fill="none" style="stroke:var(--secondary)" stroke-opacity=".18"/>
+              <ellipse cx="300" cy="478" rx="230" ry="36" style="fill:var(--primary)" opacity=".35" filter="url(#bigGlow)"/>
+              <ellipse cx="300" cy="476" rx="200" ry="30" fill="none" style="stroke:var(--primary)" stroke-opacity=".5" stroke-width="1.5"/>
+              <path d="M150 448 v22 a150 25 0 0 0 300 0 v-22" fill="url(#padSide)" stroke="url(#rimG)" stroke-width="1.5"/>
+              <ellipse cx="300" cy="448" rx="150" ry="25" fill="url(#padTop)" opacity=".55"/>
+              <ellipse cx="300" cy="448" rx="150" ry="25" fill="none" style="stroke:var(--secondary)" stroke-width="3" filter="url(#glow)"/>
+              <ellipse cx="300" cy="448" rx="105" ry="16" fill="none" stroke="#fff" stroke-opacity=".55"/>
+              <ellipse cx="300" cy="448" rx="60" ry="9" fill="#fff" opacity=".35" filter="url(#glowSm)"/>
+            </g>
+
+            <!-- Partículas e guias -->
+            <g class="sparks" style="fill:var(--secondary)" filter="url(#glowSm)">
+              <circle cx="520" cy="110" r="4"/><circle cx="118" cy="150" r="2"/><circle cx="470" cy="420" r="2.5"/><circle cx="90" cy="380" r="1.8"/><circle cx="560" cy="300" r="1.6"/>
+            </g>
+            <path d="M520 118v150" stroke="#cfe8ff" stroke-opacity=".18"/>
+            <path d="M212 448v-90M388 448v-70" style="stroke:var(--secondary)" stroke-opacity=".45" stroke-dasharray="2 5"/>
           </svg>
         </div>
 

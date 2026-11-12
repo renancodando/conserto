@@ -3,16 +3,16 @@
    Tokens de marca: altere em js/brand.js (colors) ou aqui.
    ========================================================= */
 :root {
-  --primary: #FF6A13;
-  --secondary: #FFA24C;
-  --accent: #FFD2A6;
-  --ink: #060607;
+  --primary: #1E7BFF;
+  --secondary: #22E4FF;
+  --accent: #A9D8FF;
+  --ink: #020816;
 
   --surface: #0f0f12;
   --text: #F5F5F7;
-  --muted: #9C9CA6;
-  --line: rgba(255, 255, 255, .09);
-  --line-strong: rgba(255, 255, 255, .18);
+  --muted: #93A3C4;
+  --line: rgba(150, 200, 255, .12);
+  --line-strong: rgba(150, 210, 255, .24);
   --edge: color-mix(in srgb, var(--primary) 55%, transparent);
 
   --glass-bg: linear-gradient(160deg, rgba(255,255,255,.075), rgba(255,255,255,.015) 60%, rgba(255,255,255,.035));
@@ -86,7 +86,7 @@ button, input, select { font: inherit; color: inherit; }
               0 10px 30px -6px color-mix(in srgb, var(--primary) 80%, transparent), 0 0 40px -8px var(--primary);
 }
 .btn--primary:hover { box-shadow: 0 1px 0 rgba(255,255,255,.4) inset, 0 0 0 1px var(--secondary), 0 14px 40px -6px var(--primary), 0 0 60px -6px var(--primary); }
-.btn--outline { background: rgba(255,106,19,.06); color: #fff; box-shadow: var(--neon); }
+.btn--outline { background: color-mix(in srgb, var(--primary) 10%, transparent); color: #fff; box-shadow: var(--neon); }
 .btn--outline:hover { background: color-mix(in srgb, var(--primary) 18%, transparent); }
 .btn--ghost { background: rgba(255,255,255,.05); border: 1px solid var(--line-strong); backdrop-filter: blur(12px); }
 .btn--ghost:hover { background: rgba(255,255,255,.1); }
@@ -101,7 +101,7 @@ button, input, select { font: inherit; color: inherit; }
 
 /* ---------- Header ---------- */
 .header { position: sticky; top: 0; z-index: 50; padding: 14px 0 0; transition: background .3s; }
-.header.is-scrolled { background: linear-gradient(to bottom, rgba(6,6,7,.92), rgba(6,6,7,.6) 70%, transparent); }
+.header.is-scrolled { background: linear-gradient(to bottom, color-mix(in srgb, var(--ink) 92%, transparent), color-mix(in srgb, var(--ink) 60%, transparent) 70%, transparent); }
 .header__inner { width: min(1400px, 100% - 32px); margin-inline: auto; display: flex; align-items: center; gap: 24px; }
 .logo { display: flex; align-items: center; gap: 12px; flex: none; }
 .logo__mark { width: 46px; height: 46px; overflow: visible; filter: drop-shadow(0 0 8px color-mix(in srgb, var(--primary) 70%, transparent)); }
@@ -226,11 +226,11 @@ button, input, select { font: inherit; color: inherit; }
 .how__steps small { color: var(--muted); font-size: .8rem; }
 .hex { position: relative; width: 84px; height: 92px; display: grid; place-items: center;
   clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
-  background: linear-gradient(160deg, #3a3a42, #141418 60%, #24242a); }
-.hex::before { content: ""; position: absolute; inset: 2px; clip-path: inherit; background: linear-gradient(160deg, #26262c, #0c0c0f); }
+  background: linear-gradient(160deg, color-mix(in srgb, var(--secondary) 70%, #fff), color-mix(in srgb, var(--primary) 50%, var(--ink)) 55%, color-mix(in srgb, var(--secondary) 60%, var(--ink))); }
+.hex::before { content: ""; position: absolute; inset: 2px; clip-path: inherit; background: linear-gradient(160deg, color-mix(in srgb, var(--primary) 38%, var(--ink)), color-mix(in srgb, var(--primary) 12%, var(--ink))); }
 .hex svg { position: relative; width: 36px; height: 36px; fill: none; stroke: var(--primary); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; filter: drop-shadow(0 0 6px var(--primary)); }
 .hex--done { background: linear-gradient(160deg, var(--secondary), var(--primary)); }
-.hex--done::before { background: linear-gradient(160deg, #2a1608, #120904); }
+.hex--done::before { background: linear-gradient(160deg, color-mix(in srgb, var(--secondary) 40%, var(--ink)), color-mix(in srgb, var(--primary) 18%, var(--ink))); }
 .scroll-cue { grid-column: 1 / -1; justify-self: center; margin-top: 10px; animation: nudge 2s ease-in-out infinite; }
 .scroll-cue svg { width: 34px; height: 34px; fill: none; stroke: var(--primary); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; filter: drop-shadow(0 0 6px var(--primary)); }
 @keyframes nudge { 50% { transform: translateY(6px); } }
@@ -244,7 +244,7 @@ button, input, select { font: inherit; color: inherit; }
 .product:hover { transform: translateY(-8px); border-color: color-mix(in srgb, var(--primary) 45%, transparent); box-shadow: var(--elev), 0 0 40px -18px var(--primary); }
 .product.is-hidden { display: none; }
 .product__stage { position: relative; height: 230px; border-radius: 18px; display: grid; place-items: center; overflow: hidden; perspective: 600px;
-  background: radial-gradient(60% 40% at 50% 92%, color-mix(in srgb, var(--primary) 55%, transparent), transparent 70%), linear-gradient(180deg, #0d0d10, #16110d);
+  background: radial-gradient(60% 40% at 50% 92%, color-mix(in srgb, var(--primary) 55%, transparent), transparent 70%), linear-gradient(180deg, color-mix(in srgb, var(--primary) 6%, var(--ink)), color-mix(in srgb, var(--primary) 16%, var(--ink)));
   border: 1px solid var(--line); }
 .product__stage::after { content: ""; position: absolute; left: 22%; right: 22%; bottom: 14px; height: 16px; border-radius: 50%;
   border: 2px solid var(--primary); box-shadow: 0 0 16px var(--primary), inset 0 0 10px var(--primary); }
@@ -254,7 +254,7 @@ button, input, select { font: inherit; color: inherit; }
   transform: rotateY(-20deg) rotateX(6deg); transition: transform .7s var(--ease); }
 .product:hover .product__device { transform: rotateY(14deg) rotateX(4deg) translateY(-6px); }
 .product__device::before { content: ""; display: block; height: 100%; border-radius: 16px;
-  background: radial-gradient(80% 50% at 30% 10%, color-mix(in srgb, var(--primary) 50%, transparent), transparent 70%), linear-gradient(160deg, #1b1b20, #050506 70%); }
+  background: radial-gradient(80% 50% at 30% 10%, color-mix(in srgb, var(--primary) 50%, transparent), transparent 70%), linear-gradient(160deg, color-mix(in srgb, var(--primary) 18%, #111), var(--ink) 70%); }
 .product__badge { position: absolute; top: 12px; left: 12px; z-index: 2; font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; padding: 5px 10px; border-radius: 999px; }
 .product__badge--novo { background: color-mix(in srgb, var(--primary) 25%, transparent); color: var(--accent); box-shadow: var(--neon); }
 .product__badge--seminovo { background: rgba(255,255,255,.08); color: #e6e6ea; border: 1px solid var(--line-strong); }
@@ -385,6 +385,91 @@ legend { font-size: .85rem; font-weight: 600; color: var(--muted); margin-bottom
 .reveal { opacity: 0; translate: 0 40px; filter: blur(6px); transition: opacity .9s var(--ease), translate .9s var(--ease), filter .9s var(--ease); }
 .reveal.is-visible { opacity: 1; translate: 0 0; filter: none; }
 
+/* =========================================================
+   Realismo espacial — vidro azulado, rims de luz e composição
+   ========================================================= */
+:root {
+  --glass-bg: linear-gradient(160deg, rgba(140,200,255,.13), rgba(40,110,255,.04) 55%, rgba(120,210,255,.08));
+  --rim: inset 0 1px 0 rgba(220,240,255,.35), inset 0 -1px 0 color-mix(in srgb, var(--secondary) 45%, transparent);
+  --neon: 0 0 0 1.5px color-mix(in srgb, var(--secondary) 75%, transparent),
+          0 0 16px -2px color-mix(in srgb, var(--primary) 90%, transparent),
+          0 0 44px -8px color-mix(in srgb, var(--primary) 80%, transparent);
+}
+.ambient { background:
+  radial-gradient(800px 520px at 55% 32%, color-mix(in srgb, var(--primary) 22%, transparent), transparent 70%),
+  radial-gradient(1200px 700px at 50% 115%, color-mix(in srgb, var(--primary) 18%, transparent), transparent 60%),
+  radial-gradient(700px 500px at 0% 0%, color-mix(in srgb, var(--primary) 14%, transparent), transparent 60%),
+  var(--ink); }
+.ambient::after { content: ""; position: absolute; inset: 0; background: radial-gradient(120% 90% at 50% 40%, transparent 55%, rgba(0,0,0,.55)); }
+.glow { opacity: .3 !important; }
+.bars { background: repeating-linear-gradient(90deg, color-mix(in srgb, var(--secondary) 80%, transparent) 0 2px, transparent 2px 10px); opacity: .55; filter: drop-shadow(0 0 8px var(--primary)); }
+.glass { box-shadow: var(--elev), var(--rim); border-color: rgba(150,210,255,.16); }
+
+h1 em, h2 em, .hero h1 em { color: var(--secondary); text-shadow: 0 0 24px color-mix(in srgb, var(--secondary) 60%, transparent), 0 0 60px color-mix(in srgb, var(--primary) 50%, transparent); }
+.eyebrow--slash::before { color: var(--secondary); text-shadow: 0 0 10px var(--secondary); }
+.eyebrow--line::before { background: var(--secondary); box-shadow: 0 0 10px var(--secondary); }
+.lead { color: #c9d6ee; }
+
+/* Botões com borda de luz */
+.btn--primary {
+  background: linear-gradient(180deg, color-mix(in srgb, var(--primary) 55%, var(--ink)), color-mix(in srgb, var(--primary) 22%, var(--ink)));
+  box-shadow: var(--neon), inset 0 1px 0 rgba(255,255,255,.35), inset 0 -8px 18px -8px color-mix(in srgb, var(--secondary) 60%, transparent);
+}
+.btn--primary:hover { box-shadow: var(--neon), 0 0 70px -10px var(--secondary), inset 0 1px 0 rgba(255,255,255,.45); }
+.btn--outline { background: color-mix(in srgb, var(--primary) 16%, var(--ink)); }
+
+/* Header */
+.nav::before { border-color: rgba(150,210,255,.22); background: linear-gradient(180deg, transparent, color-mix(in srgb, var(--primary) 10%, transparent));
+  box-shadow: 0 10px 30px -18px var(--primary), inset 0 -1px 0 color-mix(in srgb, var(--secondary) 55%, transparent); }
+.nav__links a::after { background: var(--secondary); box-shadow: 0 0 10px var(--secondary); }
+.apps { display: grid; grid-template-columns: repeat(3, 5px); gap: 5px; padding: 8px; flex: none; }
+.apps i { width: 5px; height: 5px; border-radius: 50%; background: #dbeaff; opacity: .8; transition: background .3s, box-shadow .3s; }
+.apps:hover i { background: var(--secondary); box-shadow: 0 0 6px var(--secondary); }
+
+/* Hero mais compacto, como composição única */
+.hero { min-height: 0; padding: 18px 0 0; grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr) 260px; }
+.hero__stage { max-width: 640px; justify-self: center; width: 100%; }
+.scene__svg { max-height: 520px; }
+.ring--rev { animation-direction: reverse; animation-duration: 60s; }
+.sparks circle { animation: twinkle 3s ease-in-out infinite; }
+.sparks circle:nth-child(2n) { animation-delay: -1.2s; } .sparks circle:nth-child(3n) { animation-delay: -2s; }
+@keyframes twinkle { 50% { opacity: .25; } }
+.stats { margin-top: -54px; }
+.stats::before { background: linear-gradient(180deg, rgba(140,200,255,.16), rgba(40,110,255,.05)); border-color: rgba(150,210,255,.3);
+  box-shadow: var(--elev), inset 0 1px 0 rgba(220,240,255,.4), 0 0 40px -16px var(--primary); }
+.stats strong { color: color-mix(in srgb, var(--secondary) 55%, #fff); text-shadow: 0 0 18px var(--secondary); }
+.stats li + li { border-left-color: rgba(150,210,255,.25); }
+
+.feat { background: linear-gradient(135deg, color-mix(in srgb, var(--primary) 30%, transparent), color-mix(in srgb, var(--primary) 8%, var(--ink)) 70%);
+  border-color: color-mix(in srgb, var(--secondary) 35%, transparent);
+  box-shadow: var(--elev), inset 0 1px 0 rgba(220,240,255,.35), inset -2px -2px 0 color-mix(in srgb, var(--secondary) 75%, transparent), 10px 12px 34px -14px var(--primary); }
+.feat__ico, .tile svg, .hex svg, .checklist svg, .features svg, .tradein__ico svg, .contact__list svg, .layer--front svg { stroke: var(--secondary); }
+.feat__ico, .tile svg, .hex svg { filter: drop-shadow(0 0 6px var(--secondary)); }
+
+/* Serviços */
+.services-row { padding-top: 34px; }
+.tile { background: linear-gradient(170deg, rgba(140,200,255,.14), color-mix(in srgb, var(--primary) 6%, transparent));
+  border-color: rgba(150,210,255,.2);
+  box-shadow: var(--elev), inset 0 1px 0 rgba(220,240,255,.3), inset 0 -2px 0 color-mix(in srgb, var(--secondary) 45%, transparent), 0 14px 30px -18px var(--primary); }
+.tile.is-active { background: linear-gradient(170deg, color-mix(in srgb, var(--primary) 55%, transparent), color-mix(in srgb, var(--primary) 18%, var(--ink)));
+  border-color: color-mix(in srgb, var(--secondary) 80%, transparent); box-shadow: var(--neon), inset 0 1px 0 rgba(255,255,255,.5), 0 30px 50px -20px var(--primary); }
+.tile.is-active i { background: var(--secondary); box-shadow: 0 0 8px var(--secondary); }
+.service-detail__meta strong, .quote__result strong, .product__price b, .layer--mid .big { color: var(--secondary); text-shadow: 0 0 18px color-mix(in srgb, var(--secondary) 55%, transparent); }
+.how { border-color: color-mix(in srgb, var(--secondary) 45%, transparent);
+  box-shadow: var(--elev), inset 0 1px 0 rgba(220,240,255,.3), 0 0 50px -18px var(--primary), inset 0 -2px 0 color-mix(in srgb, var(--secondary) 70%, transparent); }
+.how__steps::before { background: linear-gradient(90deg, var(--primary), var(--secondary), var(--primary)); box-shadow: 0 0 12px var(--secondary); }
+.scroll-cue svg { stroke: var(--secondary); filter: drop-shadow(0 0 6px var(--secondary)); }
+
+/* Demais seções */
+.stars { color: var(--secondary); text-shadow: 0 0 10px var(--secondary); }
+.product__stage::after { border-color: var(--secondary); box-shadow: 0 0 16px var(--primary), inset 0 0 10px var(--secondary); }
+.product__badge--novo { color: #fff; }
+.tab.is-active { background: color-mix(in srgb, var(--primary) 30%, transparent); }
+.faq summary::after { color: var(--secondary); }
+.map__road { background: color-mix(in srgb, var(--secondary) 60%, transparent); }
+.map__dot { background: var(--secondary); }
+.map__pulse { background: var(--secondary); }
+
 /* ---------- Responsivo ---------- */
 @media (max-width: 1200px) {
   .hero { grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); }
@@ -396,10 +481,10 @@ legend { font-size: .85rem; font-weight: 600; color: var(--muted); margin-bottom
   .footer__inner { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 960px) {
-  .header__cta { display: none; }
+  .header__cta, .apps { display: none; }
   .nav__toggle { display: block; }
   .nav { position: absolute; top: calc(100% + 8px); left: 16px; right: 16px; padding: 10px; border-radius: 22px;
-    background: rgba(12,12,14,.92); backdrop-filter: blur(20px); border: 1px solid var(--line-strong); display: none; }
+    background: color-mix(in srgb, var(--ink) 92%, transparent); backdrop-filter: blur(20px); border: 1px solid var(--line-strong); display: none; }
   .nav::before { display: none; }
   .header.is-open .nav { display: block; }
   .nav__links { flex-direction: column; gap: 2px; }

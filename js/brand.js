@@ -26,9 +26,9 @@ window.BRAND = {
 
   // Paleta da marca (sobrescreve as variáveis CSS em :root)
   colors: {
-    primary: "#FF6A13",   // laranja neon — destaques, brilhos, CTAs
-    secondary: "#FFA24C", // âmbar claro — gradientes e reflexos
-    accent: "#FFD2A6",    // pêssego — textos de apoio quentes
-    ink: "#060607"        // fundo base
+    primary: "#1E7BFF",   // azul elétrico — brilhos, bordas, botões
+    secondary: "#22E4FF", // ciano — destaques de texto e reflexos
+    accent: "#A9D8FF",    // azul-gelo — textos de apoio
+    ink: "#020816"        // fundo azul-noite
   }
 };

@@ -28,10 +28,10 @@ Os produtos ficam no array `products` e a tabela de preços do orçamento fica e
 
 ## Paleta padrão
 
-- **Laranja neon** `#FF6A13`: destaques, brilhos e botões
-- **Âmbar** `#FFA24C`: gradientes e reflexos
-- **Pêssego** `#FFD2A6`: textos de apoio quentes
-- **Ink** `#060607`: fundo preto
+- **Azul elétrico** `#1E7BFF`: brilhos, bordas e botões
+- **Ciano** `#22E4FF`: destaques de texto, ícones e reflexos
+- **Azul-gelo** `#A9D8FF`: textos de apoio
+- **Ink** `#020816`: fundo azul-noite
 
 ## Seções
 
