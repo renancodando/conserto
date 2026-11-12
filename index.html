@@ -5,252 +5,324 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Renan Mobile Lab — Conserto e venda de celulares</title>
   <meta name="description" content="Assistência técnica especializada e venda de smartphones novos e seminovos com garantia.">
+  <meta name="theme-color" content="#060607">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <script src="js/brand.js"></script>
 </head>
 <body>
 
-  <!-- Ambiente espacial: luzes de fundo -->
+  <!-- ============ Ícones (sprite) ============ -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <linearGradient id="gOrange" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" style="stop-color:var(--secondary)"/>
+        <stop offset="1" style="stop-color:var(--primary)"/>
+      </linearGradient>
+    </defs>
+    <symbol id="i-wa" viewBox="0 0 32 32"><path fill="currentColor" stroke="none" d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3Zm0 23.6a10.6 10.6 0 0 1-5.4-1.5l-.4-.2-3.9 1 1-3.8-.2-.4A10.6 10.6 0 1 1 16 26.6Zm5.8-7.9c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7 0a8.7 8.7 0 0 1-4.3-3.8c-.3-.5.3-.5.9-1.6a.6.6 0 0 0 0-.5l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.9.4 3.7 3.7 0 0 0-1.1 2.7 6.4 6.4 0 0 0 1.3 3.4 14.6 14.6 0 0 0 5.6 5c2.1.9 2.9 1 4 .8a3.4 3.4 0 0 0 2.2-1.6 2.8 2.8 0 0 0 .2-1.6c-.1-.1-.3-.2-.6-.3Z"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-screen" viewBox="0 0 24 24"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M10 5h4M9 13l3-3m-1 6 4-4"/></symbol>
+    <symbol id="i-battery" viewBox="0 0 24 24"><rect x="6" y="4" width="12" height="17.5" rx="2.5"/><path d="M10 2.5h4M12.8 8.5 10 13h4l-2.8 4.5"/></symbol>
+    <symbol id="i-plug" viewBox="0 0 24 24"><rect x="3" y="9" width="18" height="6" rx="3"/><path d="M7 12h10M1.5 12H3m18 0h1.5"/></symbol>
+    <symbol id="i-camera" viewBox="0 0 24 24"><path d="M3 8V5a2 2 0 0 1 2-2h3m8 0h3a2 2 0 0 1 2 2v3m0 8v3a2 2 0 0 1-2 2h-3m-8 0H5a2 2 0 0 1-2-2v-3"/><circle cx="12" cy="12" r="3.5"/></symbol>
+    <symbol id="i-temp" viewBox="0 0 24 24"><path d="M10 14.5V4a2 2 0 0 1 4 0v10.5a4 4 0 1 1-4 0Z"/><path d="M12 9v7M17 5h3M17 8.5h3M17 12h2"/></symbol>
+    <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.6 1.6 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.6 1.6 0 0 0-1.8-.3 1.6 1.6 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.6 1.6 0 0 0-1-1.5 1.6 1.6 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.6 1.6 0 0 0 .3-1.8 1.6 1.6 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.6 1.6 0 0 0 1.5-1 1.6 1.6 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.6 1.6 0 0 0 1.8.3H9a1.6 1.6 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.6 1.6 0 0 0 1 1.5 1.6 1.6 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.6 1.6 0 0 0-.3 1.8V9a1.6 1.6 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.6 1.6 0 0 0-1.5 1Z"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="7.5"/><circle cx="12" cy="12" r="3"/><path d="M12 1.5v4m0 13v4M1.5 12h4m13 0h4"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2.5 4 5.5v6c0 5 3.4 8.6 8 10 4.6-1.4 8-5 8-10v-6l-8-3Z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13.5 2 5 13.5h6.5L10.5 22 19 10.5h-6.5L13.5 2Z"/></symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24"><path d="M14 2.5H6.5a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V8L14 2.5Z"/><path d="M14 2.5V8h5.5M8.5 12.5h7m-7 4h7"/></symbol>
+    <symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.8-3.8a6 6 0 0 1-7.9 7.9l-6.9 6.9a2.1 2.1 0 0 1-3-3l6.9-6.9a6 6 0 0 1 7.9-7.9l-3.8 3.7Z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><path d="m8 12.2 2.8 2.8L16.5 9"/></symbol>
+    <symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 2.5s-6.5 7.2-6.5 12a6.5 6.5 0 0 0 13 0c0-4.8-6.5-12-6.5-12Z"/><path d="M9 15a3 3 0 0 0 3 3"/></symbol>
+    <symbol id="i-chip" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2"/><rect x="9.5" y="9.5" width="5" height="5" rx="1"/><path d="M9 2.5V6m6-3.5V6M9 18v3.5m6-3.5v3.5M2.5 9H6m-3.5 6H6m12-6h3.5M18 15h3.5"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21.5s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12Z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+    <symbol id="i-call" viewBox="0 0 24 24"><path d="M21.5 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 2.1 4.7 2 2 0 0 1 4.1 2.5h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 10.4a16 16 0 0 0 5.6 5.6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="m3 6.5 9 6.5 9-6.5"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><path d="M12 6.5V12l3.5 2"/></symbol>
+    <symbol id="i-truck" viewBox="0 0 24 24"><path d="M2.5 5.5h11v10h-11zM13.5 9.5h4l3 3.5v2.5h-7"/><circle cx="6.5" cy="17.5" r="2"/><circle cx="17" cy="17.5" r="2"/></symbol>
+    <symbol id="i-card" viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 10h19M6.5 15h4"/></symbol>
+    <symbol id="i-swap" viewBox="0 0 24 24"><path d="M4 8h14l-3.5-3.5M20 16H6l3.5 3.5"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><path d="m5 9 7 7 7-7"/></symbol>
+  </svg>
+
+  <!-- ============ Ambiente: luzes e curvas ============ -->
   <div class="ambient" aria-hidden="true">
-    <span class="orb orb--a"></span>
-    <span class="orb orb--b"></span>
-    <span class="orb orb--c"></span>
-    <span class="grid-floor"></span>
+    <svg class="sweeps" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <linearGradient id="sw1" x1="0" x2="1">
+          <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+          <stop offset=".45" stop-color="#fff" stop-opacity=".55"/>
+          <stop offset=".8" style="stop-color:var(--primary)" stop-opacity=".9"/>
+          <stop offset="1" style="stop-color:var(--primary)" stop-opacity="0"/>
+        </linearGradient>
+        <linearGradient id="sw2" x1="1" x2="0">
+          <stop offset="0" style="stop-color:var(--primary)" stop-opacity="0"/>
+          <stop offset=".4" style="stop-color:var(--primary)" stop-opacity=".8"/>
+          <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+        </linearGradient>
+        <filter id="soft"><feGaussianBlur stdDeviation="2.2"/></filter>
+        <filter id="wide"><feGaussianBlur stdDeviation="14"/></filter>
+      </defs>
+      <path d="M-50 720 C 300 560, 700 520, 1000 600 S 1500 760, 1650 640" stroke="url(#sw1)" stroke-width="10" fill="none" filter="url(#wide)" opacity=".5"/>
+      <path d="M-50 720 C 300 560, 700 520, 1000 600 S 1500 760, 1650 640" stroke="url(#sw1)" stroke-width="1.6" fill="none" filter="url(#soft)"/>
+      <path d="M1650 300 C 1350 420, 1150 500, 900 470 S 300 330, -50 470" stroke="url(#sw2)" stroke-width="1.2" fill="none" filter="url(#soft)" opacity=".6"/>
+      <path d="M-50 940 C 400 840, 900 860, 1650 960" stroke="url(#sw1)" stroke-width="1" fill="none" opacity=".35"/>
+    </svg>
+    <span class="bars bars--l"></span>
+    <span class="bars bars--r"></span>
+    <span class="glow glow--a"></span>
+    <span class="glow glow--b"></span>
   </div>
 
-  <!-- ================= HEADER ================= -->
+  <!-- ============ HEADER ============ -->
   <header class="header">
-    <div class="topbar">
-      <div class="container topbar__inner">
-        <span>📍 <span data-brand="address"></span></span>
-        <span class="topbar__right">🕘 <span data-brand="hours"></span></span>
-      </div>
-    </div>
-    <nav class="nav glass" aria-label="Principal">
+    <div class="header__inner">
       <a href="#inicio" class="logo" aria-label="Página inicial">
         <svg class="logo__mark" viewBox="0 0 48 48" aria-hidden="true">
-          <defs>
-            <linearGradient id="lg" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stop-color="var(--primary)"/>
-              <stop offset="1" stop-color="var(--secondary)"/>
-            </linearGradient>
-          </defs>
-          <rect x="10" y="3" width="28" height="42" rx="8" fill="url(#lg)"/>
-          <rect x="13.5" y="7" width="21" height="31" rx="4" fill="var(--ink)" opacity=".85"/>
-          <path d="M19 31V14h6.2a4.6 4.6 0 0 1 0 9.2H19m6 0 5 7.8" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="24" cy="41.5" r="1.4" fill="#fff"/>
+          <ellipse cx="24" cy="25" rx="21" ry="8.5" transform="rotate(-24 24 25)" class="logo__orbit"/>
+          <rect x="15" y="7" width="18" height="34" rx="5" class="logo__phone"/>
+          <path d="M25.6 15 20.5 25h4.2l-1.5 8 5.3-10.2h-4.4z" class="logo__bolt"/>
+          <path d="M5.5 33.4C3 29 13 21 26.8 16.6" class="logo__orbit logo__orbit--front"/>
         </svg>
         <span class="logo__text">
           <strong data-brand="name">Renan</strong>
-          <small data-brand="suffix">Mobile Lab</small>
+          <small data-brand="logoSub">Assistência Técnica</small>
         </span>
       </a>
 
-      <button class="nav__toggle" aria-label="Abrir menu" aria-expanded="false">
-        <span></span><span></span>
-      </button>
+      <nav class="nav" aria-label="Principal">
+        <ul class="nav__links">
+          <li><a href="#inicio" class="is-active">Início</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#loja">Loja</a></li>
+          <li><a href="#orcamento">Orçamento</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
 
-      <ul class="nav__links">
-        <li><a href="#servicos">Serviços</a></li>
-        <li><a href="#loja">Loja</a></li>
-        <li><a href="#orcamento">Orçamento</a></li>
-        <li><a href="#sobre">Sobre</a></li>
-        <li><a href="#contato">Contato</a></li>
-        <li class="nav__cta"><a class="btn btn--primary btn--sm" data-whatsapp href="#">WhatsApp</a></li>
-      </ul>
-    </nav>
+      <a class="btn btn--outline btn--sm header__cta" data-whatsapp href="#">
+        <svg class="ico"><use href="#i-wa"/></svg> Fale no WhatsApp <svg class="ico ico--arrow"><use href="#i-arrow"/></svg>
+      </a>
+      <button class="nav__toggle" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
   </header>
 
   <main>
-    <!-- ================= HERO ================= -->
-    <section class="hero container" id="inicio">
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="inicio">
       <div class="hero__copy">
-        <span class="chip glass">⚡ Reparos expressos em até 1 hora</span>
+        <span class="eyebrow eyebrow--slash">Assistência especializada</span>
         <h1>
-          <span data-brand="slogan">Seu celular de volta, como novo.</span>
+          <span data-brand="heroTitle">Seu celular funcionando</span>
+          <em data-brand="heroAccent">sempre.</em>
         </h1>
-        <p class="lead">
-          Assistência técnica especializada em iPhone, Samsung, Motorola e Xiaomi,
-          com peças de qualidade e <strong><span data-brand="warrantyMonths">6</span> meses de garantia</strong>.
-          E se for hora de trocar, temos aparelhos novos e seminovos revisados.
-        </p>
+        <p class="lead" data-brand="heroText"></p>
         <div class="hero__actions">
-          <a href="#orcamento" class="btn btn--primary">Fazer orçamento grátis</a>
-          <a href="#loja" class="btn btn--glass">Ver celulares à venda</a>
+          <a href="#orcamento" class="btn btn--primary">
+            <svg class="ico"><use href="#i-wa"/></svg> Solicitar orçamento <svg class="ico ico--arrow"><use href="#i-arrow"/></svg>
+          </a>
+          <a href="#loja" class="btn btn--ghost">Ver celulares à venda</a>
         </div>
-        <ul class="hero__stats">
-          <li><strong data-count="18000">0</strong><span>aparelhos consertados</span></li>
-          <li><strong>4,9★</strong><span>no Google</span></li>
-          <li><strong data-brand-years>10+</strong><span>anos de experiência</span></li>
-        </ul>
       </div>
 
-      <!-- Cena espacial -->
-      <div class="hero__scene" data-tilt-scene>
+      <!-- Cena 3D -->
+      <div class="hero__stage" data-tilt-scene>
         <div class="scene">
-          <div class="phone" data-depth="0">
-            <div class="phone__screen">
-              <div class="phone__notch"></div>
-              <div class="phone__ui">
-                <span class="phone__time">09:41</span>
-                <div class="phone__ring">
-                  <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="52" class="ring-bg"/><circle cx="60" cy="60" r="52" class="ring-fg"/></svg>
-                  <div><b>100%</b><small>Diagnóstico</small></div>
-                </div>
-                <ul class="phone__checks">
-                  <li>Tela <i>OK</i></li>
-                  <li>Bateria <i>OK</i></li>
-                  <li>Câmera <i>OK</i></li>
-                </ul>
-              </div>
-            </div>
-          </div>
+          <svg class="scene__svg" viewBox="0 0 600 560" aria-hidden="true">
+            <defs>
+              <linearGradient id="ringG" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" style="stop-color:var(--secondary)"/>
+                <stop offset=".55" style="stop-color:var(--primary)"/>
+                <stop offset="1" style="stop-color:var(--primary)" stop-opacity="0"/>
+              </linearGradient>
+              <linearGradient id="orbitG" x1="0" x2="1">
+                <stop offset="0" stop-color="#fff" stop-opacity=".05"/>
+                <stop offset=".35" stop-color="#fff" stop-opacity=".55"/>
+                <stop offset=".75" style="stop-color:var(--primary)"/>
+                <stop offset="1" style="stop-color:var(--primary)" stop-opacity=".1"/>
+              </linearGradient>
+              <linearGradient id="glassG" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#fff" stop-opacity=".22"/>
+                <stop offset=".5" stop-color="#fff" stop-opacity=".04"/>
+                <stop offset="1" stop-color="#fff" stop-opacity=".12"/>
+              </linearGradient>
+              <radialGradient id="padG" cx=".5" cy=".5" r=".5">
+                <stop offset="0" style="stop-color:var(--secondary)" stop-opacity=".9"/>
+                <stop offset=".6" style="stop-color:var(--primary)" stop-opacity=".35"/>
+                <stop offset="1" style="stop-color:var(--primary)" stop-opacity="0"/>
+              </radialGradient>
+              <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="6" result="b"/>
+                <feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+              <filter id="bigGlow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="22"/></filter>
+            </defs>
 
-          <div class="float glass float--a" data-depth="60">
-            <span class="float__icon">🛠️</span>
-            <div><b>Tela trocada</b><small>Pronto em 45 min</small></div>
+            <!-- Pedestal -->
+            <g class="pedestal">
+              <ellipse cx="300" cy="478" rx="250" ry="44" fill="none" stroke="#fff" stroke-opacity=".08"/>
+              <ellipse cx="300" cy="470" rx="190" ry="30" fill="url(#padG)" filter="url(#bigGlow)" opacity=".8"/>
+              <path d="M140 452 v18 a160 26 0 0 0 320 0 v-18" fill="#120a06" stroke="url(#ringG)" stroke-width="1.5"/>
+              <ellipse cx="300" cy="452" rx="160" ry="26" fill="#1a0f08" stroke="url(#ringG)" stroke-width="2.5" filter="url(#glow)"/>
+              <ellipse cx="300" cy="452" rx="120" ry="17" fill="none" style="stroke:var(--primary)" stroke-opacity=".5"/>
+            </g>
+
+            <!-- Anel brilhante -->
+            <g class="ring" filter="url(#glow)">
+              <circle cx="300" cy="230" r="178" fill="none" stroke="url(#ringG)" stroke-width="3"/>
+            </g>
+            <g class="ticks" stroke="#fff" stroke-opacity=".35" stroke-width="2">
+              <path d="M130 120l8 5M118 140l8 4M108 162l9 3M100 186l9 2" />
+              <path d="M492 260h12M492 276h12M490 292h12M486 308h12" />
+            </g>
+
+            <!-- Órbita traseira -->
+            <ellipse class="orbit orbit--back" cx="300" cy="250" rx="270" ry="70" transform="rotate(-16 300 250)" fill="none" stroke="url(#orbitG)" stroke-width="1.5"/>
+
+            <!-- Placa de vidro -->
+            <g class="slab" data-depth="30">
+              <rect x="300" y="36" width="160" height="300" rx="22" transform="rotate(24 380 186)" fill="url(#glassG)" stroke="#fff" stroke-opacity=".45" stroke-width="1.4"/>
+            </g>
+
+            <!-- Celular neon -->
+            <g class="device" data-depth="60">
+              <g transform="rotate(14 300 240)" filter="url(#glow)">
+                <rect x="232" y="118" width="136" height="236" rx="22" fill="#0d0805" fill-opacity=".75" style="stroke:var(--primary)" stroke-width="5"/>
+                <rect x="284" y="108" width="34" height="12" rx="4" style="fill:var(--primary)"/>
+                <path class="bolt" d="M312 178 272 252h30l-10 58 42-80h-32z" fill="none" style="stroke:var(--primary)" stroke-width="5" stroke-linejoin="round"/>
+              </g>
+            </g>
+
+            <!-- Órbita frontal -->
+            <path class="orbit orbit--front" d="M40 330 C 10 290, 200 200, 470 180 C 600 172, 620 210, 520 250" fill="none" stroke="url(#orbitG)" stroke-width="2.5"/>
+            <path d="M40 330 C 60 360, 260 350, 420 300" fill="none" stroke="#fff" stroke-opacity=".25" stroke-width="1.2"/>
+
+            <circle cx="520" cy="110" r="4" style="fill:var(--primary)" filter="url(#glow)"/>
+            <path d="M520 118v150" stroke="#fff" stroke-opacity=".12"/>
+            <path d="M210 452v-80M390 452v-60" style="stroke:var(--primary)" stroke-opacity=".35" stroke-dasharray="2 4"/>
+          </svg>
+        </div>
+
+        <ul class="stats" aria-label="Números">
+          <li><strong><span data-count="18000">0</span></strong><span>Aparelhos recuperados</span></li>
+          <li><strong>98%</strong><span>Satisfação dos clientes</span></li>
+          <li><strong>24h</strong><span>Orçamento rápido</span></li>
+        </ul>
+      </div>
+
+      <ul class="hero__features">
+        <li class="feat glass">
+          <svg class="feat__ico"><use href="#i-target"/></svg>
+          <span>Diagnóstico<br>preciso</span>
+        </li>
+        <li class="feat glass">
+          <svg class="feat__ico"><use href="#i-shield"/></svg>
+          <span>Qualidade<br>e garantia</span>
+        </li>
+        <li class="feat glass">
+          <svg class="feat__ico"><use href="#i-bolt"/></svg>
+          <span>Atendimento<br>ágil</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ============ SERVIÇOS + COMO FUNCIONA ============ -->
+    <section class="section wrap services-row" id="servicos">
+      <div class="services">
+        <span class="eyebrow eyebrow--line">Nossos serviços</span>
+        <div class="tiles" role="tablist" aria-label="Serviços">
+          <button class="tile is-active" data-service="tela"><svg><use href="#i-screen"/></svg><span>Troca<br>de tela</span><i></i></button>
+          <button class="tile" data-service="bateria"><svg><use href="#i-battery"/></svg><span>Troca<br>de bateria</span><i></i></button>
+          <button class="tile" data-service="conector"><svg><use href="#i-plug"/></svg><span>Reparo<br>de conector</span><i></i></button>
+          <button class="tile" data-service="camera"><svg><use href="#i-camera"/></svg><span>Reparo<br>de câmera</span><i></i></button>
+          <button class="tile" data-service="aquecimento"><svg><use href="#i-temp"/></svg><span>Superaque­cimento</span><i></i></button>
+          <button class="tile" data-service="manutencao"><svg><use href="#i-gear"/></svg><span>Manutenção<br>geral</span><i></i></button>
+        </div>
+        <div class="service-detail glass" aria-live="polite">
+          <div>
+            <h3 id="sdTitle">Troca de tela</h3>
+            <p id="sdText"></p>
           </div>
-          <div class="float glass float--b" data-depth="90">
-            <span class="float__icon float__icon--accent">🛡️</span>
-            <div><b><span data-brand="warrantyMonths">6</span> meses</b><small>de garantia</small></div>
-          </div>
-          <div class="float glass float--c" data-depth="40">
-            <span class="float__icon">🔋</span>
-            <div><b>Bateria nova</b><small>Saúde 100%</small></div>
+          <div class="service-detail__meta">
+            <span>a partir de</span>
+            <strong id="sdPrice">R$ 189</strong>
+            <small id="sdTime"></small>
           </div>
         </div>
       </div>
-    </section>
 
-    <!-- ================= MARCAS ================= -->
-    <section class="brands container" aria-label="Marcas atendidas">
-      <div class="brands__strip glass">
-        <span>Atendemos</span>
-        <ul>
-          <li>Apple</li><li>Samsung</li><li>Motorola</li><li>Xiaomi</li><li>LG</li><li>Asus</li><li>Realme</li>
-        </ul>
+      <div class="how glass">
+        <span class="eyebrow eyebrow--line">Como funciona</span>
+        <ol class="how__steps">
+          <li><span class="hex"><svg><use href="#i-doc"/></svg></span><b>Diagnóstico</b><small>Grátis e na hora</small></li>
+          <li><span class="hex"><svg><use href="#i-wrench"/></svg></span><b>Reparo</b><small>Peças com garantia</small></li>
+          <li><span class="hex hex--done"><svg><use href="#i-check"/></svg></span><b>Pronto</b><small>Retire ou receba</small></li>
+        </ol>
       </div>
+      <a href="#loja" class="scroll-cue" aria-label="Rolar para a loja"><svg><use href="#i-down"/></svg></a>
     </section>
 
-    <!-- ================= SERVIÇOS ================= -->
-    <section class="section container" id="servicos">
+    <!-- ============ LOJA ============ -->
+    <section class="section wrap" id="loja">
       <header class="section__head">
-        <span class="eyebrow">Assistência técnica</span>
-        <h2>Consertamos o que o seu celular precisar</h2>
-        <p>Diagnóstico gratuito, orçamento na hora e acompanhamento do reparo pelo WhatsApp.</p>
-      </header>
-
-      <div class="services">
-        <article class="card glass" data-tilt>
-          <div class="card__icon">📱</div>
-          <h3>Troca de tela</h3>
-          <p>Telas originais e premium, com película de brinde e calibração do touch.</p>
-          <span class="card__price">a partir de <b>R$ 189</b></span>
-        </article>
-        <article class="card glass" data-tilt>
-          <div class="card__icon">🔋</div>
-          <h3>Troca de bateria</h3>
-          <p>Bateria nova com certificação, teste de ciclos e saúde em 100%.</p>
-          <span class="card__price">a partir de <b>R$ 129</b></span>
-        </article>
-        <article class="card glass" data-tilt>
-          <div class="card__icon">🔌</div>
-          <h3>Conector de carga</h3>
-          <p>Celular não carrega? Limpeza ou troca do conector com teste completo.</p>
-          <span class="card__price">a partir de <b>R$ 99</b></span>
-        </article>
-        <article class="card glass" data-tilt>
-          <div class="card__icon">💧</div>
-          <h3>Dano por líquido</h3>
-          <p>Banho químico em ultrassom e recuperação de placa em laboratório.</p>
-          <span class="card__price">a partir de <b>R$ 149</b></span>
-        </article>
-        <article class="card glass" data-tilt>
-          <div class="card__icon">📷</div>
-          <h3>Câmeras e lentes</h3>
-          <p>Câmera embaçada, tremendo ou sem foco? Trocamos módulo e vidro da lente.</p>
-          <span class="card__price">a partir de <b>R$ 119</b></span>
-        </article>
-        <article class="card glass" data-tilt>
-          <div class="card__icon">💾</div>
-          <h3>Software e dados</h3>
-          <p>Atualização, desbloqueio de conta, backup e recuperação de fotos.</p>
-          <span class="card__price">a partir de <b>R$ 79</b></span>
-        </article>
-      </div>
-    </section>
-
-    <!-- ================= COMO FUNCIONA ================= -->
-    <section class="section container">
-      <header class="section__head">
-        <span class="eyebrow">Como funciona</span>
-        <h2>Simples, rápido e transparente</h2>
-      </header>
-      <ol class="steps">
-        <li class="step glass"><span class="step__n">1</span><h3>Traga ou agende</h3><p>Venha à loja ou peça a coleta grátis na sua casa.</p></li>
-        <li class="step glass"><span class="step__n">2</span><h3>Diagnóstico grátis</h3><p>Avaliamos o aparelho na sua frente, sem compromisso.</p></li>
-        <li class="step glass"><span class="step__n">3</span><h3>Reparo expresso</h3><p>A maioria dos consertos fica pronta no mesmo dia.</p></li>
-        <li class="step glass"><span class="step__n">4</span><h3>Garantia</h3><p><span data-brand="warrantyMonths">6</span> meses de garantia em peças e mão de obra.</p></li>
-      </ol>
-    </section>
-
-    <!-- ================= LOJA ================= -->
-    <section class="section container" id="loja">
-      <header class="section__head section__head--row">
         <div>
-          <span class="eyebrow">Loja</span>
-          <h2>Celulares novos e seminovos</h2>
-          <p>Todos revisados em 40 pontos, com nota fiscal e garantia.</p>
+          <span class="eyebrow eyebrow--line">Loja</span>
+          <h2>Celulares novos e <em>seminovos</em></h2>
+          <p>Revisados em 40 pontos, com nota fiscal e <span data-brand="warrantyMonths">6</span> meses de garantia.</p>
         </div>
         <div class="tabs glass" role="tablist">
-          <button class="tab is-active" data-filter="all" role="tab">Todos</button>
-          <button class="tab" data-filter="novo" role="tab">Novos</button>
-          <button class="tab" data-filter="seminovo" role="tab">Seminovos</button>
+          <button class="tab is-active" data-filter="all">Todos</button>
+          <button class="tab" data-filter="novo">Novos</button>
+          <button class="tab" data-filter="seminovo">Seminovos</button>
         </div>
       </header>
 
-      <div class="products" id="products"><!-- preenchido via JS --></div>
+      <div class="products" id="products"></div>
 
       <div class="tradein glass">
+        <span class="tradein__ico"><svg><use href="#i-swap"/></svg></span>
         <div>
           <h3>Seu usado vale desconto</h3>
-          <p>Avaliamos seu celular antigo na hora e o valor entra como parte do pagamento do novo.</p>
+          <p>Avaliamos seu celular antigo na hora e o valor entra no pagamento do novo.</p>
         </div>
-        <a class="btn btn--accent" data-whatsapp data-msg="Olá! Quero avaliar meu celular usado na troca." href="#">Avaliar meu usado</a>
+        <a class="btn btn--primary" data-whatsapp data-msg="Olá! Quero avaliar meu celular usado na troca." href="#">Avaliar meu usado <svg class="ico ico--arrow"><use href="#i-arrow"/></svg></a>
       </div>
     </section>
 
-    <!-- ================= ORÇAMENTO ================= -->
-    <section class="section container" id="orcamento">
+    <!-- ============ ORÇAMENTO ============ -->
+    <section class="section wrap" id="orcamento">
       <div class="quote glass">
         <div class="quote__intro">
-          <span class="eyebrow">Orçamento online</span>
-          <h2>Descubra quanto custa o seu conserto</h2>
-          <p>Escolha o aparelho e o problema. O valor é uma estimativa — confirmamos tudo no diagnóstico gratuito.</p>
+          <span class="eyebrow eyebrow--slash">Orçamento online</span>
+          <h2>Quanto custa o <em>seu conserto?</em></h2>
+          <p>Escolha o aparelho e o problema. É uma estimativa: confirmamos tudo no diagnóstico gratuito.</p>
           <ul class="checklist">
-            <li>Sem compromisso</li>
-            <li>Peças com garantia</li>
-            <li>Parcelamos em até 10x</li>
+            <li><svg><use href="#i-check"/></svg>Sem compromisso</li>
+            <li><svg><use href="#i-shield"/></svg>Peças com garantia</li>
+            <li><svg><use href="#i-card"/></svg>Parcelamos em até 10x</li>
           </ul>
         </div>
 
         <form class="quote__form" id="quoteForm" novalidate>
-          <label>Marca
-            <select name="brand" required>
-              <option value="apple">Apple (iPhone)</option>
-              <option value="samsung">Samsung</option>
-              <option value="motorola">Motorola</option>
-              <option value="xiaomi">Xiaomi</option>
-              <option value="outra">Outra</option>
-            </select>
-          </label>
-          <label>Modelo
-            <input name="model" type="text" placeholder="Ex.: iPhone 13, Galaxy S23…" required>
-          </label>
+          <div class="field-row">
+            <label>Marca
+              <select name="brand">
+                <option value="apple">Apple (iPhone)</option>
+                <option value="samsung">Samsung</option>
+                <option value="motorola">Motorola</option>
+                <option value="xiaomi">Xiaomi</option>
+                <option value="outra">Outra</option>
+              </select>
+            </label>
+            <label>Modelo
+              <input name="model" type="text" placeholder="Ex.: iPhone 13" required>
+            </label>
+          </div>
           <fieldset>
             <legend>Qual o problema?</legend>
             <div class="pills">
@@ -262,54 +334,51 @@
               <label class="pill"><input type="radio" name="issue" value="outro"><span>Outro</span></label>
             </div>
           </fieldset>
-
           <div class="quote__result" aria-live="polite">
             <small>Estimativa</small>
             <strong id="quoteValue">R$ —</strong>
             <span id="quoteTime">Prazo médio: —</span>
           </div>
-
-          <button class="btn btn--primary btn--block" type="submit">Enviar pelo WhatsApp</button>
+          <button class="btn btn--primary btn--block" type="submit"><svg class="ico"><use href="#i-wa"/></svg> Enviar pelo WhatsApp</button>
         </form>
       </div>
     </section>
 
-    <!-- ================= SOBRE / DIFERENCIAIS ================= -->
-    <section class="section container about" id="sobre">
-      <div class="about__visual">
-        <div class="layer glass layer--back"></div>
-        <div class="layer glass layer--mid">
+    <!-- ============ SOBRE ============ -->
+    <section class="section wrap about" id="sobre">
+      <div class="about__visual" aria-hidden="true">
+        <div class="layer layer--back glass"></div>
+        <div class="layer layer--mid glass">
           <span class="big" data-brand-years>10+</span>
           <span>anos cuidando de celulares</span>
         </div>
-        <div class="layer glass layer--front">
-          <b>Laboratório próprio</b>
-          <small>Microsoldagem e reparo de placa</small>
+        <div class="layer layer--front glass">
+          <svg><use href="#i-chip"/></svg>
+          <div><b>Laboratório próprio</b><small>Microsoldagem e reparo de placa</small></div>
         </div>
       </div>
       <div class="about__copy">
-        <span class="eyebrow">Sobre a <span data-brand="name">Renan</span></span>
-        <h2>Tecnologia com atendimento de bairro</h2>
+        <span class="eyebrow eyebrow--line">Sobre a <span data-brand="name">Renan</span></span>
+        <h2>Tecnologia com <em>atendimento de bairro</em></h2>
         <p>
           A <strong><span data-brand="name">Renan</span> <span data-brand="suffix">Mobile Lab</span></strong>
-          nasceu em <span data-brand="founded">2014</span> com uma ideia simples: consertar celulares com honestidade,
-          explicando cada etapa e cobrando o justo. Hoje somos referência na região, com técnicos certificados
-          e laboratório próprio.
+          nasceu em <span data-brand="founded">2014</span> para consertar celulares com honestidade, explicando
+          cada etapa e cobrando o justo. Hoje temos técnicos certificados e laboratório próprio.
         </p>
         <ul class="features">
-          <li class="glass"><b>Técnicos certificados</b><span>Treinamento contínuo nas principais marcas.</span></li>
-          <li class="glass"><b>Peças de qualidade</b><span>Originais e premium, sempre com procedência.</span></li>
-          <li class="glass"><b>Coleta e entrega</b><span>Buscamos e levamos seu aparelho sem custo.</span></li>
-          <li class="glass"><b>Pagamento fácil</b><span>Pix, débito e crédito em até 10x.</span></li>
+          <li class="glass"><svg><use href="#i-target"/></svg><b>Técnicos certificados</b><span>Treinamento contínuo nas principais marcas.</span></li>
+          <li class="glass"><svg><use href="#i-shield"/></svg><b>Peças de qualidade</b><span>Originais e premium, com procedência.</span></li>
+          <li class="glass"><svg><use href="#i-truck"/></svg><b>Coleta e entrega</b><span>Buscamos e levamos seu aparelho.</span></li>
+          <li class="glass"><svg><use href="#i-card"/></svg><b>Pagamento fácil</b><span>Pix, débito e crédito em até 10x.</span></li>
         </ul>
       </div>
     </section>
 
-    <!-- ================= DEPOIMENTOS ================= -->
-    <section class="section container">
-      <header class="section__head">
-        <span class="eyebrow">Depoimentos</span>
-        <h2>Quem consertou, recomenda</h2>
+    <!-- ============ DEPOIMENTOS ============ -->
+    <section class="section wrap">
+      <header class="section__head section__head--center">
+        <span class="eyebrow eyebrow--line">Depoimentos</span>
+        <h2>Quem consertou, <em>recomenda</em></h2>
       </header>
       <div class="reviews">
         <figure class="review glass" data-tilt>
@@ -330,45 +399,45 @@
       </div>
     </section>
 
-    <!-- ================= FAQ ================= -->
-    <section class="section container faq">
-      <header class="section__head">
-        <span class="eyebrow">Dúvidas frequentes</span>
-        <h2>Perguntas e respostas</h2>
+    <!-- ============ FAQ ============ -->
+    <section class="section wrap faq">
+      <header class="section__head section__head--center">
+        <span class="eyebrow eyebrow--line">Dúvidas frequentes</span>
+        <h2>Perguntas e <em>respostas</em></h2>
       </header>
       <div class="faq__list">
         <details class="glass" open>
           <summary>O diagnóstico é realmente gratuito?</summary>
-          <p>Sim. Avaliamos o aparelho sem custo e só fazemos o reparo após sua aprovação do orçamento.</p>
+          <p>Sim. Avaliamos o aparelho sem custo e só fazemos o reparo após você aprovar o orçamento.</p>
         </details>
         <details class="glass">
           <summary>Vou perder meus dados no conserto?</summary>
-          <p>Na grande maioria dos reparos (tela, bateria, conector) seus dados permanecem intactos. Mesmo assim, recomendamos backup — e podemos fazê-lo para você.</p>
+          <p>Na maioria dos reparos (tela, bateria, conector) seus dados ficam intactos. Mesmo assim, recomendamos backup, e podemos fazê-lo para você.</p>
         </details>
         <details class="glass">
           <summary>Qual é a garantia?</summary>
-          <p>Todos os serviços e aparelhos vendidos têm <span data-brand="warrantyMonths">6</span> meses de garantia, cobrindo peças e mão de obra.</p>
+          <p>Serviços e aparelhos vendidos têm <span data-brand="warrantyMonths">6</span> meses de garantia, cobrindo peças e mão de obra.</p>
         </details>
         <details class="glass">
           <summary>Os seminovos têm nota fiscal?</summary>
-          <p>Sim. Todos os aparelhos são revisados em 40 pontos, acompanham nota fiscal, carregador e garantia.</p>
+          <p>Sim. Todos são revisados em 40 pontos e acompanham nota fiscal, carregador e garantia.</p>
         </details>
       </div>
     </section>
 
-    <!-- ================= CONTATO ================= -->
-    <section class="section container" id="contato">
+    <!-- ============ CONTATO ============ -->
+    <section class="section wrap" id="contato">
       <div class="contact">
         <div class="contact__card glass">
-          <span class="eyebrow">Fale com a gente</span>
-          <h2>Venha nos visitar</h2>
+          <span class="eyebrow eyebrow--slash">Fale com a gente</span>
+          <h2>Venha nos <em>visitar</em></h2>
           <ul class="contact__list">
-            <li><span>📍</span><div><b>Endereço</b><span data-brand="address"></span></div></li>
-            <li><span>📞</span><div><b>Telefone</b><a data-brand="phone" data-tel href="#"></a></div></li>
-            <li><span>✉️</span><div><b>E-mail</b><a data-brand="email" data-mail href="#"></a></div></li>
-            <li><span>🕘</span><div><b>Horário</b><span data-brand="hours"></span></div></li>
+            <li><svg><use href="#i-pin"/></svg><div><b>Endereço</b><span data-brand="address"></span></div></li>
+            <li><svg><use href="#i-call"/></svg><div><b>Telefone</b><a data-brand="phone" data-tel href="#"></a></div></li>
+            <li><svg><use href="#i-mail"/></svg><div><b>E-mail</b><a data-brand="email" data-mail href="#"></a></div></li>
+            <li><svg><use href="#i-clock"/></svg><div><b>Horário</b><span data-brand="hours"></span></div></li>
           </ul>
-          <a class="btn btn--primary btn--block" data-whatsapp href="#">Chamar no WhatsApp</a>
+          <a class="btn btn--primary btn--block" data-whatsapp href="#"><svg class="ico"><use href="#i-wa"/></svg> Chamar no WhatsApp</a>
         </div>
         <div class="map glass" aria-label="Mapa ilustrativo">
           <div class="map__grid"></div>
@@ -384,18 +453,18 @@
     </section>
   </main>
 
-  <!-- ================= FOOTER ================= -->
-  <footer class="footer">
-    <div class="container footer__inner glass">
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer wrap">
+    <div class="footer__inner glass">
       <div class="footer__brand">
         <a href="#inicio" class="logo">
           <svg class="logo__mark" viewBox="0 0 48 48" aria-hidden="true">
-            <rect x="10" y="3" width="28" height="42" rx="8" fill="url(#lg)"/>
-            <rect x="13.5" y="7" width="21" height="31" rx="4" fill="var(--ink)" opacity=".85"/>
-            <path d="M19 31V14h6.2a4.6 4.6 0 0 1 0 9.2H19m6 0 5 7.8" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
-            <circle cx="24" cy="41.5" r="1.4" fill="#fff"/>
+            <ellipse cx="24" cy="25" rx="21" ry="8.5" transform="rotate(-24 24 25)" class="logo__orbit"/>
+            <rect x="15" y="7" width="18" height="34" rx="5" class="logo__phone"/>
+            <path d="M25.6 15 20.5 25h4.2l-1.5 8 5.3-10.2h-4.4z" class="logo__bolt"/>
+            <path d="M5.5 33.4C3 29 13 21 26.8 16.6" class="logo__orbit logo__orbit--front"/>
           </svg>
-          <span class="logo__text"><strong data-brand="name">Renan</strong><small data-brand="suffix">Mobile Lab</small></span>
+          <span class="logo__text"><strong data-brand="name">Renan</strong><small data-brand="logoSub">Assistência Técnica</small></span>
         </a>
         <p data-brand="tagline"></p>
       </div>
@@ -405,7 +474,7 @@
       </div>
       <div>
         <h4>Loja</h4>
-        <ul><li><a href="#loja">Novos</a></li><li><a href="#loja">Seminovos</a></li><li><a href="#loja">Acessórios</a></li><li><a href="#loja">Trade-in</a></li></ul>
+        <ul><li><a href="#loja">Novos</a></li><li><a href="#loja">Seminovos</a></li><li><a href="#loja">Trade-in</a></li></ul>
       </div>
       <div>
         <h4>Contato</h4>
@@ -418,9 +487,7 @@
     </div>
   </footer>
 
-  <a class="wa-float" data-whatsapp href="#" aria-label="Falar no WhatsApp">
-    <svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3Zm0 23.6a10.6 10.6 0 0 1-5.4-1.5l-.4-.2-3.9 1 1-3.8-.2-.4A10.6 10.6 0 1 1 16 26.6Zm5.8-7.9c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7 0a8.7 8.7 0 0 1-4.3-3.8c-.3-.5.3-.5.9-1.6a.6.6 0 0 0 0-.5l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.9.4 3.7 3.7 0 0 0-1.1 2.7 6.4 6.4 0 0 0 1.3 3.4 14.6 14.6 0 0 0 5.6 5c2.1.9 2.9 1 4 .8a3.4 3.4 0 0 0 2.2-1.6 2.8 2.8 0 0 0 .2-1.6c-.1-.1-.3-.2-.6-.3Z"/></svg>
-  </a>
+  <a class="wa-float" data-whatsapp href="#" aria-label="Falar no WhatsApp"><svg><use href="#i-wa"/></svg></a>
 
   <script src="js/main.js"></script>
 </body>

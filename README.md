@@ -15,7 +15,8 @@ Tudo fica em **`js/brand.js`**:
 | Campo | Uso |
 |---|---|
 | `name`, `suffix` | Logotipo, títulos e rodapé ("Renan" + "Mobile Lab") |
-| `tagline`, `slogan` | Título do hero e descrição no rodapé |
+| `logoSub`, `tagline` | Subtítulo do logo e descrição no rodapé |
+| `heroTitle`, `heroAccent`, `heroText` | Título (parte branca + parte laranja) e texto do topo |
 | `phone`, `whatsapp`, `email`, `address`, `hours`, `instagram`, `cnpj` | Contatos e links do WhatsApp |
 | `warrantyMonths`, `founded` | Garantia e anos de experiência (calculados automaticamente) |
 | `colors.primary / secondary / accent / ink` | Paleta inteira do site (variáveis CSS) |
@@ -27,13 +28,13 @@ Os produtos ficam no array `products` e a tabela de preços do orçamento fica e
 
 ## Paleta padrão
 
-- **Menta** `#3DDBB4`: ações principais
-- **Violeta** `#7C6CFF`: profundidade e gradientes
-- **Âmbar** `#FFB547`: preços e chamadas
-- **Ink** `#0B1020`: fundo
+- **Laranja neon** `#FF6A13`: destaques, brilhos e botões
+- **Âmbar** `#FFA24C`: gradientes e reflexos
+- **Pêssego** `#FFD2A6`: textos de apoio quentes
+- **Ink** `#060607`: fundo preto
 
 ## Seções
 
-Header fixo em vidro · Hero com celular 3D e cards flutuantes · Marcas · Serviços · Como funciona · Loja com filtro novos/seminovos · Trade-in · Orçamento online que envia pelo WhatsApp · Sobre · Depoimentos · FAQ · Contato com mapa · Rodapé.
+Header com menu em vidro · Hero com celular neon, órbitas, pedestal e números · Cards de diferenciais · Serviços clicáveis com preço · Como funciona em hexágonos · Loja com filtro novos/seminovos · Trade-in · Orçamento online que envia pelo WhatsApp · Sobre · Depoimentos · FAQ · Contato com mapa · Rodapé.
 
 O site é responsivo, tem foco visível para teclado e respeita `prefers-reduced-motion`.

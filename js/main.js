@@ -3,11 +3,11 @@
   const $ = (s, el = document) => el.querySelector(s);
   const $$ = (s, el = document) => [...el.querySelectorAll(s)];
   const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const brl = n => n.toLocaleString("pt-BR", { style: "currency", currency: "BRL", maximumFractionDigits: 0 });
 
   /* ---------- Whitelabel: aplica marca ---------- */
   const root = document.documentElement;
   Object.entries(B.colors || {}).forEach(([k, v]) => root.style.setProperty(`--${k}`, v));
-
   $$("[data-brand]").forEach(el => {
     const v = B[el.dataset.brand];
     if (v !== undefined) el.textContent = v;
@@ -29,32 +29,60 @@
 
   /* ---------- Header / menu ---------- */
   const header = $(".header");
-  const nav = $(".nav");
   const toggle = $(".nav__toggle");
   addEventListener("scroll", () => header.classList.toggle("is-scrolled", scrollY > 20), { passive: true });
-  toggle.addEventListener("click", () => {
-    const open = nav.classList.toggle("is-open");
-    toggle.setAttribute("aria-expanded", open);
-  });
-  $$(".nav__links a").forEach(a => a.addEventListener("click", () => {
-    nav.classList.remove("is-open");
+  toggle.addEventListener("click", () => toggle.setAttribute("aria-expanded", header.classList.toggle("is-open")));
+  const navLinks = $$(".nav__links a");
+  navLinks.forEach(a => a.addEventListener("click", () => {
+    header.classList.remove("is-open");
     toggle.setAttribute("aria-expanded", "false");
   }));
+  // Link ativo conforme a seção visível
+  const sections = navLinks.map(a => $(a.getAttribute("href"))).filter(Boolean);
+  if ("IntersectionObserver" in window) {
+    const spy = new IntersectionObserver(entries => entries.forEach(en => {
+      if (en.isIntersecting) navLinks.forEach(a => a.classList.toggle("is-active", a.getAttribute("href") === `#${en.target.id}`));
+    }), { rootMargin: "-45% 0px -50% 0px" });
+    sections.forEach(s => spy.observe(s));
+  }
+
+  /* ---------- Serviços ---------- */
+  const services = {
+    tela:        ["Troca de tela", "Telas originais e premium, com película de brinde e calibração do touch.", 189, "1 a 2 horas"],
+    bateria:     ["Troca de bateria", "Bateria nova com certificação, teste de ciclos e saúde em 100%.", 129, "40 minutos"],
+    conector:    ["Reparo de conector", "Celular não carrega? Limpeza ou troca do conector com teste completo.", 99, "1 hora"],
+    camera:      ["Reparo de câmera", "Câmera embaçada, tremendo ou sem foco: trocamos módulo e vidro da lente.", 119, "1 a 2 horas"],
+    aquecimento: ["Superaquecimento", "Diagnóstico de placa, troca de pasta térmica e correção de consumo anormal.", 149, "24 horas"],
+    manutencao:  ["Manutenção geral", "Limpeza interna, atualização de sistema, backup e revisão completa.", 79, "2 horas"]
+  };
+  const showService = key => {
+    const [t, d, p, time] = services[key];
+    $("#sdTitle").textContent = t;
+    $("#sdText").textContent = d;
+    $("#sdPrice").textContent = brl(p);
+    $("#sdTime").textContent = `Prazo médio: ${time}`;
+    $$(".tile").forEach(b => {
+      const on = b.dataset.service === key;
+      b.classList.toggle("is-active", on);
+      b.setAttribute("aria-selected", on);
+    });
+  };
+  $$(".tile").forEach(b => b.addEventListener("click", () => showService(b.dataset.service)));
+  showService("tela");
 
   /* ---------- Produtos ---------- */
   const products = [
-    { name: "iPhone 15", spec: "128 GB · Preto", type: "novo", price: 4999, old: 5499, c1: "#3a3f4b", c2: "#7C6CFF" },
-    { name: "Galaxy S24", spec: "256 GB · Violeta", type: "novo", price: 4299, old: 4799, c1: "#6b5bd6", c2: "#3DDBB4" },
-    { name: "iPhone 13", spec: "128 GB · Azul · Bateria 91%", type: "seminovo", price: 2699, old: 3199, c1: "#2f5d8a", c2: "#5ab0ff" },
-    { name: "Moto Edge 50", spec: "256 GB · Verde", type: "novo", price: 2299, old: 2599, c1: "#2d6b5c", c2: "#3DDBB4" },
-    { name: "Redmi Note 13", spec: "256 GB · Grafite", type: "novo", price: 1499, old: 1699, c1: "#2b2f3a", c2: "#FFB547" },
-    { name: "Galaxy S22", spec: "128 GB · Branco · Grade A", type: "seminovo", price: 1899, old: 2399, c1: "#c9cdd8", c2: "#7C6CFF" },
-    { name: "iPhone 12", spec: "64 GB · Roxo · Bateria 88%", type: "seminovo", price: 1999, old: 2499, c1: "#8b7ad8", c2: "#ff8fb1" },
-    { name: "Galaxy A55", spec: "128 GB · Azul-gelo", type: "novo", price: 1899, old: 2199, c1: "#9fc3e6", c2: "#3DDBB4" }
+    { name: "iPhone 15", spec: "128 GB · Preto", type: "novo", price: 4999, old: 5499, c1: "#3a3a40" },
+    { name: "Galaxy S24", spec: "256 GB · Grafite", type: "novo", price: 4299, old: 4799, c1: "#4a4a52" },
+    { name: "iPhone 13", spec: "128 GB · Estelar · Bateria 91%", type: "seminovo", price: 2699, old: 3199, c1: "#cfc8bd" },
+    { name: "Moto Edge 50", spec: "256 GB · Verde", type: "novo", price: 2299, old: 2599, c1: "#2f5a4e" },
+    { name: "Redmi Note 13", spec: "256 GB · Laranja", type: "novo", price: 1499, old: 1699, c1: "#c8541a" },
+    { name: "Galaxy S22", spec: "128 GB · Branco · Grade A", type: "seminovo", price: 1899, old: 2399, c1: "#d9d9de" },
+    { name: "iPhone 12", spec: "64 GB · Azul · Bateria 88%", type: "seminovo", price: 1999, old: 2499, c1: "#2c4a6e" },
+    { name: "Galaxy A55", spec: "128 GB · Azul-gelo", type: "novo", price: 1899, old: 2199, c1: "#9fb6cc" }
   ];
-  const brl = n => n.toLocaleString("pt-BR", { style: "currency", currency: "BRL", maximumFractionDigits: 0 });
   $("#products").innerHTML = products.map(p => `
-    <article class="product glass" data-type="${p.type}" style="--c1:${p.c1};--c2:${p.c2}">
+    <article class="product glass" data-type="${p.type}" style="--c1:${p.c1}">
       <div class="product__stage">
         <span class="product__badge product__badge--${p.type}">${p.type}</span>
         <div class="product__device"></div>
@@ -64,7 +92,7 @@
         <span class="product__spec">${p.spec}</span>
         <div class="product__price"><b>${brl(p.price)}</b><s>${brl(p.old)}</s></div>
         <span class="product__inst">ou 10x de ${brl(Math.ceil(p.price / 10))} sem juros</span>
-        <a class="btn btn--glass" target="_blank" rel="noopener"
+        <a class="btn btn--ghost" target="_blank" rel="noopener"
            href="${waLink(`Olá! Tenho interesse no ${p.name} (${p.spec}) por ${brl(p.price)}.`)}">Tenho interesse</a>
       </div>
     </article>`).join("");
@@ -76,7 +104,7 @@
   }));
 
   /* ---------- Orçamento ---------- */
-  const table = { // [valor base, prazo]
+  const table = {
     tela: [289, "1 a 2 horas"], bateria: [159, "40 minutos"], carga: [119, "1 hora"],
     liquido: [199, "24 a 48 horas"], camera: [179, "1 a 2 horas"], outro: [null, "após diagnóstico"]
   };
@@ -88,7 +116,7 @@
     const v = base && Math.round(base * factor[d.get("brand")] / 10) * 10 - 1;
     $("#quoteValue").textContent = v ? `a partir de ${brl(v)}` : "Diagnóstico grátis";
     $("#quoteTime").textContent = `Prazo médio: ${time}`;
-    return { d, v, time };
+    return { d, v };
   };
   form.addEventListener("input", calc);
   calc();
@@ -108,43 +136,44 @@
   /* ---------- Contador ---------- */
   $$("[data-count]").forEach(el => {
     const end = +el.dataset.count;
-    if (reduceMotion) { el.textContent = end.toLocaleString("pt-BR") + "+"; return; }
+    const fmt = n => n.toLocaleString("pt-BR");
+    if (reduceMotion) { el.textContent = fmt(end); return; }
     const t0 = performance.now(), dur = 1800;
     const step = t => {
-      const k = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - k, 3);
-      el.textContent = Math.round(end * e).toLocaleString("pt-BR") + (k === 1 ? "+" : "");
+      const k = Math.min(1, (t - t0) / dur);
+      el.textContent = fmt(Math.round(end * (1 - Math.pow(1 - k, 3))));
       if (k < 1) requestAnimationFrame(step);
     };
     requestAnimationFrame(step);
   });
 
   /* ---------- Revelação ao rolar ---------- */
-  const revealEls = $$(".section__head, .services, .steps, .products, .tradein, .quote, .about__visual, .about__copy, .reviews, .faq__list, .contact, .brands__strip");
+  const revealEls = $$(".services, .how, .section__head, .products, .tradein, .quote, .about__visual, .about__copy, .reviews, .faq__list, .contact");
   if (!reduceMotion && "IntersectionObserver" in window) {
     revealEls.forEach(el => el.classList.add("reveal"));
     const io = new IntersectionObserver(entries => entries.forEach(en => {
       if (en.isIntersecting) { en.target.classList.add("is-visible"); io.unobserve(en.target); }
-    }), { threshold: .12 });
+    }), { threshold: .1 });
     revealEls.forEach(el => io.observe(el));
   }
 
-  /* ---------- Spatial: parallax do hero e tilt dos cards ---------- */
+  /* ---------- Spatial: parallax da cena e tilt ---------- */
   const finePointer = matchMedia("(hover: hover) and (pointer: fine)").matches;
   if (reduceMotion || !finePointer) return;
 
-  const sceneWrap = $("[data-tilt-scene]");
-  const scene = $(".scene", sceneWrap);
-  const layers = $$("[data-depth]", sceneWrap);
-  sceneWrap.addEventListener("pointermove", e => {
-    const r = sceneWrap.getBoundingClientRect();
+  const hero = $(".hero");
+  const scene = $(".scene");
+  const layers = $$("[data-depth]", scene);
+  hero.addEventListener("pointermove", e => {
+    const r = hero.getBoundingClientRect();
     const x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
-    scene.style.transform = `rotateY(${x * 12}deg) rotateX(${-y * 10}deg)`;
+    scene.style.transform = `rotateY(${x * 10}deg) rotateX(${-y * 8}deg)`;
     layers.forEach(l => {
       const d = +l.dataset.depth;
-      if (d) l.style.transform = `translate3d(${x * d * .4}px, ${y * d * .4}px, ${d}px)`;
+      l.style.transform = `translate(${x * d * .5}px, ${y * d * .5}px)`;
     });
   });
-  sceneWrap.addEventListener("pointerleave", () => {
+  hero.addEventListener("pointerleave", () => {
     scene.style.transform = "";
     layers.forEach(l => (l.style.transform = ""));
   });
@@ -153,9 +182,7 @@
     card.addEventListener("pointermove", e => {
       const r = card.getBoundingClientRect();
       const x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
-      card.style.transform = `perspective(900px) rotateX(${(.5 - y) * 8}deg) rotateY(${(x - .5) * 10}deg) translateZ(10px)`;
-      card.style.setProperty("--mx", `${x * 100}%`);
-      card.style.setProperty("--my", `${y * 100}%`);
+      card.style.transform = `perspective(900px) rotateX(${(.5 - y) * 8}deg) rotateY(${(x - .5) * 10}deg)`;
     });
     card.addEventListener("pointerleave", () => (card.style.transform = ""));
   });
